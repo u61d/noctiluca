@@ -1,0 +1,90 @@
+#!/usr/bin/env python3
+"""wallpaper -> palette.json
+
+  noctiluca-palette --image ~/Pictures/wall.jpg
+  noctiluca-palette --image cover.jpg --hue-only    just {"hue": N}, for album art
+  noctiluca-palette --hue 140
+  noctiluca-palette --reference
+  noctiluca-palette --image x.png --out -           print instead of writing
+
+exit 0 ok, 1 bad or unreadable image, 2 a contrast guarantee failed
+"""
+import argparse
+import json
+import os
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(os.path.realpath(__file__)).parent / "lib"))
+import noctiluca_color as nc  # noqa: E402
+from noctiluca_util import atomic_write, state_dir  # noqa: E402
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(prog="noctiluca-palette", description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    src = ap.add_mutually_exclusive_group(required=True)
+    src.add_argument("--image", help="wallpaper or album art")
+    src.add_argument("--hue", type=float, help="force accent hue in degrees")
+    src.add_argument("--reference", action="store_true", help="use the reference hue")
+    ap.add_argument("--tokens", help="path to tokens.json (default: repo / $NOCTILUCA_TOKENS)")
+    ap.add_argument("--out", help="output file, '-' for stdout (default: state palette.json)")
+    ap.add_argument("--hue-only", action="store_true", help="print only the extracted hue as JSON")
+    args = ap.parse_args()
+
+    try:
+        tokens = nc.load_tokens(Path(args.tokens) if args.tokens else None)
+    except (OSError, ValueError) as e:
+        print(f"noctiluca-palette: cannot read tokens: {e}", file=sys.stderr)
+        return 1
+
+    if args.image:
+        try:
+            hue, info = nc.extract_hue(args.image, tokens)
+        except Exception as e:  # unreadable / unsupported image
+            print(f"noctiluca-palette: cannot read image '{args.image}': {e}", file=sys.stderr)
+            return 1
+        source = {"kind": "image", "path": str(Path(args.image).resolve()), **info}
+    elif args.hue is not None:
+        hue = args.hue % 360.0
+        source = {"kind": "hue-override"}
+    else:
+        hue = float(tokens["palette"]["reference_hue"])
+        source = {"kind": "reference"}
+
+    mono = bool(source.get("mono"))
+    if args.hue_only:
+        print(json.dumps({"hue": hue, "mono": mono, "source": source}))
+        return 0
+
+    roles = nc.render_roles(tokens, hue, mono)
+    bad = nc.contrast_violations(tokens, roles)
+    if bad:  # cannot happen with the shipped tokens; guards future token edits
+        print("noctiluca-palette: design guarantees violated:", file=sys.stderr)
+        for line in bad:
+            print("  -", line, file=sys.stderr)
+        return 2
+
+    doc = {
+        "schema": 1,
+        "generator": nc.GENERATOR,
+        "hue": hue,
+        "mono": mono,
+        "source": source,
+        "roles": roles,
+    }
+    text = json.dumps(doc, indent=2, sort_keys=False) + "\n"
+
+    out = args.out
+    if out == "-":
+        sys.stdout.write(text)
+        return 0
+    path = Path(out) if out else state_dir() / "palette.json"
+    changed = atomic_write(path, text)
+    what = "black and white" if mono else f"hue {hue:g}"
+    print(f"noctiluca-palette: {what} -> {path} ({'written' if changed else 'unchanged'})")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

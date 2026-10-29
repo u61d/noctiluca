@@ -1,0 +1,195 @@
+#!/usr/bin/env python3
+"""sets the wallpaper: checks the image, builds the palette, records the path, rethemes.
+the shell draws the wallpaper itself, there's no daemon.
+
+  noctiluca-wallpaper --list | --current | --random
+  noctiluca-wallpaper --set ~/Pictures/x.jpg [--dry-run]
+
+looks in $NOCTILUCA_WALLPAPERS (colon separated), ~/Pictures/wallpapers,
+~/Pictures/Wallpapers and $XDG_DATA_HOME/noctiluca/wallpapers.
+
+exit 0 ok, 1 bad or unreadable image, 2 the palette engine refused it
+"""
+import argparse
+import json
+import os
+import random
+import subprocess
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(os.path.realpath(__file__)).parent / "lib"))
+from noctiluca_util import atomic_write, fixed_hue, state_dir  # noqa: E402
+
+SCRIPTS = Path(os.path.realpath(__file__)).parent
+SUFFIXES = {".jpg", ".jpeg", ".png", ".webp", ".avif", ".jxl", ".bmp", ".tif", ".tiff"}
+
+
+def data_dir() -> Path:
+    base = os.environ.get("XDG_DATA_HOME") or str(Path.home() / ".local" / "share")
+    return Path(base) / "noctiluca"
+
+
+def search_dirs() -> list[Path]:
+    env = os.environ.get("NOCTILUCA_WALLPAPERS", "")
+    dirs = [Path(p).expanduser() for p in env.split(":") if p]
+    dirs += [Path.home() / "Pictures" / "wallpapers",
+             Path.home() / "Pictures" / "Wallpapers",
+             data_dir() / "wallpapers"]
+    seen, out = set(), []
+    for d in dirs:
+        try:
+            key = d.resolve()
+        except OSError:
+            continue
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(d)
+    return out
+
+
+def find_wallpapers() -> list[Path]:
+    found: list[Path] = []
+    seen: set[Path] = set()
+    for d in search_dirs():
+        if not d.is_dir():
+            continue
+        for p in sorted(d.iterdir()):
+            if not p.is_file() or p.suffix.lower() not in SUFFIXES:
+                continue
+            try:
+                key = p.resolve()
+            except OSError:
+                continue
+            if key in seen:
+                continue
+            seen.add(key)
+            found.append(p)
+    return found
+
+
+def state_file() -> Path:
+    return state_dir() / "wallpaper"
+
+
+def read_current() -> str:
+    try:
+        return state_file().read_text().strip()
+    except OSError:
+        return ""
+
+
+def run(cmd: list[str], dry: bool) -> int:
+    if dry:
+        print("would run:", " ".join(cmd))
+        return 0
+    r = subprocess.run(cmd)
+    return r.returncode
+
+
+def do_set(image: Path, dry: bool) -> int:
+    if not image.is_file():
+        print(f"noctiluca-wallpaper: not a file: {image}", file=sys.stderr)
+        return 1
+    if image.suffix.lower() not in SUFFIXES:
+        print(f"noctiluca-wallpaper: {image.suffix or 'no extension'} is not a supported image "
+              f"({', '.join(sorted(SUFFIXES))})", file=sys.stderr)
+        return 1
+    path = str(image.resolve())
+
+    # palette first; the wallpaper only gets recorded if that worked
+    hue = fixed_hue()
+    source = ["--hue", str(hue)] if hue is not None else ["--image", path]
+    rc = run([sys.executable, str(SCRIPTS / "noctiluca-palette")] + source, dry)
+    if rc != 0:
+        print(f"noctiluca-wallpaper: palette engine failed ({rc}); wallpaper unchanged",
+              file=sys.stderr)
+        return 2 if rc == 2 else 1
+
+    if dry:
+        print(f"would record: {state_file()} -> {path}")
+    else:
+        atomic_write(state_file(), path + "\n")
+
+    theme = [sys.executable, str(SCRIPTS / "noctiluca-theme")]
+    if dry:
+        if (state_dir() / "palette.json").is_file():
+            subprocess.run(theme + ["--dry-run"])
+        else:
+            print("would run:", " ".join(theme), "(no palette.json yet: nothing to preview)")
+        return 0
+    rc = run(theme, dry=False)
+    if rc != 0:
+        print("noctiluca-wallpaper: the wallpaper and palette are set, but noctiluca-theme "
+              f"exited {rc}; some apps may not have been retinted", file=sys.stderr)
+        return 1
+    if not dry:
+        print(f"wallpaper: {path}")
+    return 0
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(prog="noctiluca-wallpaper", description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    g = ap.add_mutually_exclusive_group(required=True)
+    g.add_argument("--list", action="store_true", help="JSON list of wallpapers found")
+    g.add_argument("--dirs", action="store_true", help="print the search directories")
+    g.add_argument("--current", action="store_true", help="print the current wallpaper path")
+    g.add_argument("--set", metavar="IMAGE", help="set this image as the wallpaper")
+    g.add_argument("--random", action="store_true", help="set a random wallpaper from the search dirs")
+    ap.add_argument("--dry-run", action="store_true", help="change nothing")
+    args = ap.parse_args()
+
+    if args.dirs:
+        for d in search_dirs():
+            print(("  " if d.is_dir() else "! ") + str(d))
+        return 0
+
+    if args.list:
+        cur = read_current()
+        items = []
+        for p in find_wallpapers():
+            try:
+                st = p.stat()
+            except OSError:
+                continue
+            items.append({"path": str(p), "name": p.stem.replace("_", " ").replace("-", " "),
+                          "mtime": int(st.st_mtime), "bytes": st.st_size,
+                          "current": str(p.resolve()) == cur})
+        json.dump({"schema": 1, "current": cur, "dirs": [str(d) for d in search_dirs()],
+                   "wallpapers": items}, sys.stdout)
+        sys.stdout.write("\n")
+        return 0
+
+    if args.current:
+        cur = read_current()
+        if cur:
+            print(cur)
+        return 0 if cur else 1
+
+    if args.random:
+        found = [p for p in find_wallpapers() if str(p.resolve()) != read_current()]
+        if not found:
+            print("noctiluca-wallpaper: no wallpapers found in:", file=sys.stderr)
+            for d in search_dirs():
+                print(f"  {d}", file=sys.stderr)
+            return 1
+        # one broken file shouldn't make random fail
+        random.shuffle(found)
+        for i, cand in enumerate(found):
+            rc = do_set(cand, args.dry_run)
+            if rc == 0:
+                return 0
+            if i + 1 < len(found):
+                print(f"noctiluca-wallpaper: {cand.name} did not work; trying another",
+                      file=sys.stderr)
+        print(f"noctiluca-wallpaper: none of the {len(found)} candidates could be used",
+              file=sys.stderr)
+        return 1
+
+    return do_set(Path(args.set).expanduser(), args.dry_run)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,235 @@
+#!/usr/bin/env python3
+"""palette.json -> every themed file, then reload what changed.
+
+  noctiluca-theme [--setup] [--dry-run] [--no-reload] [--only kitty,hypr]
+
+templates (unknown roles or filters are an error):
+  {{glow}}            #rrggbb
+  {{glow|nohash}}     rrggbb
+  {{glow|rgb}}        r, g, b
+  {{glow|css:0.5}}    rgba(r, g, b, 0.5)
+  {{glow|hypr:0.5}}   rgba(rrggbbaa)
+  {{glow|qt}}         #ffrrggbb
+  {{glow|qt:0.5}}     #80rrggbb
+  {{glow|ansi}}       38;2;r;g;b
+  {{glow|kde}}        r,g,b
+  {{hue}} {{generated_note}} {{font_sans}} {{font_mono}} {{cursor_theme}} {{cursor_size}}
+  {{config_dir}}
+
+exit 0 ok, 1 bad input, 3 template error
+"""
+import argparse
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(os.path.realpath(__file__)).parent / "lib"))
+import noctiluca_color as nc  # noqa: E402
+from noctiluca_util import atomic_write, config_dir, data_home, state_dir  # noqa: E402
+
+REPO = Path(os.path.realpath(__file__)).parent.parent
+TOKEN_RE = re.compile(r"\{\{\s*([a-z_0-9]+)(?:\|([a-z]+)(?::([0-9.]+))?)?\s*\}\}")
+
+
+class TemplateError(Exception):
+    pass
+
+
+def a8(alpha: float) -> int:
+    return max(0, min(255, round(alpha * 255)))
+
+
+def apply_filter(hexcol: str, flt: str | None, arg: str | None) -> str:
+    r, g, b = nc.hex_to_rgb8(hexcol)
+    if flt is None:
+        return hexcol
+    if flt == "nohash":
+        return hexcol.lstrip("#")
+    if flt == "rgb":
+        return f"{r}, {g}, {b}"
+    if flt == "kde":
+        return f"{r},{g},{b}"
+    if flt == "css":
+        return f"rgba({r}, {g}, {b}, {arg if arg is not None else '1'})"
+    if flt == "hypr":
+        return f"rgba({hexcol.lstrip('#')}{a8(float(arg if arg is not None else 1)):02x})"
+    if flt == "qt":
+        return f"#{a8(float(arg if arg is not None else 1)):02x}{hexcol.lstrip('#')}"
+    if flt == "ansi":
+        return f"38;2;{r};{g};{b}"
+    raise TemplateError(f"unknown filter '{flt}'")
+
+
+def render(text: str, roles: dict, extras: dict, name: str) -> str:
+    def sub(m: "re.Match[str]") -> str:
+        key, flt, arg = m.group(1), m.group(2), m.group(3)
+        if key in roles:
+            return apply_filter(roles[key], flt, arg)
+        if key in extras:
+            if flt:
+                raise TemplateError(f"{name}: filter on non-colour '{key}'")
+            return str(extras[key])
+        raise TemplateError(f"{name}: unknown role '{key}'")
+
+    return TOKEN_RE.sub(sub, text)
+
+
+def reload_kitty() -> str:
+    if shutil.which("pkill") is None:
+        return "pkill not found; open kitty windows keep old colours until ctrl+shift+f5"
+    # -U: only our own kitties, or pkill hits other users' and fails with EPERM
+    r = subprocess.run(["pkill", "-USR1", "-x", "-U", str(os.getuid()), "kitty"],
+                       capture_output=True, text=True)
+    err = (r.stderr or "").strip().splitlines()
+    tail = f"; pkill said: {err[-1]}" if err else ""   # never hide a warning behind "success"
+    if r.returncode == 0:
+        return "sent SIGUSR1 to kitty" + tail
+    if r.returncode == 1:
+        return "no kitty of yours is running (new windows pick up the new colours)" + tail
+    return f"could not signal kitty (pkill exit {r.returncode})" + tail
+
+
+def reload_hypr() -> str:
+    if not os.environ.get("HYPRLAND_INSTANCE_SIGNATURE") or shutil.which("hyprctl") is None:
+        return "Hyprland not running (colours apply at next start)"
+    lua = ('package.loaded["generated.colors"]=nil; package.loaded["modules.theme"]=nil; '
+           'require("modules.theme").apply()')
+    r = subprocess.run(["hyprctl", "eval", lua], capture_output=True, text=True)
+    out = (r.stdout + r.stderr).strip()
+    if r.returncode == 0 and "error" not in out.lower():
+        return "applied live via hyprctl eval"
+    subprocess.run(["hyprctl", "reload"], check=False, capture_output=True)
+    return f"eval failed ({out or 'no output'}); fell back to hyprctl reload"
+
+
+def merge_kde(old: str, new: str) -> str:
+    """kdeglobals belongs to every kde app, so only swap the colour sections and the scheme name
+    and keep everything else that's in there"""
+    def sections(text: str) -> list[tuple[str, list[str]]]:
+        out: list[tuple[str, list[str]]] = [("", [])]
+        for line in text.splitlines():
+            if line.startswith("[") and "]" in line:
+                out.append((line.strip(), []))
+            else:
+                out[-1][1].append(line)
+        return out
+
+    ours = sections(new)
+    mine = lambda h: h.startswith("[Colors:") or h.startswith("[ColorEffects:") or h == "[WM]"
+    general = next((body for h, body in ours if h == "[General]"), [])
+    keys = {l.split("=", 1)[0] for l in general if "=" in l}
+
+    kept = []
+    seen_general = False
+    for h, body in sections(old):
+        if mine(h):
+            continue
+        if h == "[General]":
+            seen_general = True
+            body = [l for l in body if l.split("=", 1)[0] not in keys]
+            body = [l for l in general if l.strip()] + [l for l in body if l.strip()] + [""]
+        kept.append((h, body))
+    if not seen_general:
+        kept.insert(1, ("[General]", [l for l in general if l.strip()] + [""]))
+    kept += [(h, body) for h, body in ours if mine(h)]
+
+    lines = []
+    for h, body in kept:
+        body = [l for l in body if l.strip()]
+        if h:
+            lines.append(h)
+        lines.extend(body)
+        if h or body:
+            lines.append("")
+    return "\n".join(lines).strip("\n") + "\n"
+
+
+def drop_old_logo() -> None:
+    # the picture logo from beta.3 and earlier
+    for name in ("fastfetch-logo.png", "fastfetch-logo.colors"):
+        try:
+            (state_dir() / name).unlink()
+        except OSError:
+            pass
+
+
+RELOADERS = {"kitty": reload_kitty, "hypr": reload_hypr}
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--palette", help="palette.json (default: state dir)")
+    ap.add_argument("--templates", help="templates dir (default: repo/templates)")
+    ap.add_argument("--tokens", help="tokens.json")
+    ap.add_argument("--setup", action="store_true", help="also write static targets")
+    ap.add_argument("--only", help="comma-separated target names")
+    ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--no-reload", action="store_true")
+    a = ap.parse_args()
+
+    pal_path = Path(a.palette) if a.palette else state_dir() / "palette.json"
+    try:
+        pal = json.loads(pal_path.read_text())
+        roles = pal["roles"]
+        tokens = nc.load_tokens(Path(a.tokens) if a.tokens else None)
+    except (OSError, ValueError, KeyError) as e:
+        print(f"noctiluca-theme: cannot read palette/tokens ({pal_path}): {e}", file=sys.stderr)
+        print("  run `noctiluca-palette --reference` or `noctiluca-palette --image <wallpaper>` first.", file=sys.stderr)
+        return 1
+
+    tdir = Path(a.templates) if a.templates else REPO / "templates"
+    manifest = json.loads((tdir / "manifest.json").read_text())
+    cfg = config_dir()
+    cur = tokens["cursor"]
+    extras = {
+        "hue": pal.get("hue", ""),
+        "generated_note": "generated by noctiluca-theme from palette.json, edits get overwritten",
+        "font_sans": tokens["type"]["family"]["sans"],
+        "font_mono": tokens["type"]["family"]["mono"],
+        "cursor_theme": os.environ.get("NOCTILUCA_CURSOR_THEME", cur["theme"]),
+        "cursor_size": os.environ.get("NOCTILUCA_CURSOR_SIZE", cur["size"]),
+        "config_dir": str(cfg),
+    }
+    only = set(a.only.split(",")) if a.only else None
+
+    changed_reloads: list[str] = []
+    errors = 0
+    for t in manifest["targets"]:
+        if only and t["name"] not in only:
+            continue
+        if t["kind"] == "static" and not a.setup:
+            continue
+        dest = Path(t["dest"].format(config=cfg, state=state_dir(), data=data_home()))
+        try:
+            text = render((tdir / t["template"]).read_text(), roles, extras, t["template"])
+        except TemplateError as e:
+            print(f"noctiluca-theme: template error: {e}", file=sys.stderr)
+            errors += 1
+            continue
+        if t.get("merge") == "kde" and dest.exists():
+            text = merge_kde(dest.read_text(), text)
+        if a.dry_run:
+            same = dest.exists() and dest.read_text() == text
+            print(f"  {'same   ' if same else 'WOULD  '} {t['name']:14s} {dest}")
+            continue
+        wrote = atomic_write(dest, text)
+        if t["name"] == "fastfetch":
+            drop_old_logo()
+        print(f"  {'written  ' if wrote else 'unchanged'} {t['name']:14s} {dest}")
+        if wrote and t.get("reload") and t["reload"] not in changed_reloads:
+            changed_reloads.append(t["reload"])
+
+    if errors:
+        return 3
+    if not a.dry_run and not a.no_reload:
+        for r in changed_reloads:
+            print(f"  reload {r}: {RELOADERS[r]()}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

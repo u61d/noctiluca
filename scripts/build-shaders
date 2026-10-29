@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+# compiles shell/shaders/*.frag into the .qsb files qt actually loads.
+# the bundles are committed, so you only need this after editing a shader.
+# --check compares them against MANIFEST without a compiler.
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/.." && pwd)"
+DIR="$ROOT/shell/shaders"
+MANIFEST="$DIR/MANIFEST"
+CHECK=0
+[ "${1:-}" = "--check" ] && CHECK=1
+[ "${1:-}" = "-h" ] || [ "${1:-}" = "--help" ] && { sed -n '2,/^set -/ s/^# \{0,1\}//p' "$0"; exit 0; }
+
+die() { printf 'build-shaders: %s\n' "$1" >&2; exit "${2:-1}"; }
+
+hash_of() { sha256sum "$1" | cut -d' ' -f1; }
+
+shopt -s nullglob
+sources=("$DIR"/*.frag "$DIR"/*.vert)
+[ "${#sources[@]}" -gt 0 ] || die "no shaders in $DIR"
+
+if [ "$CHECK" = 1 ]; then
+  [ -f "$MANIFEST" ] || die "no manifest: run scripts/build-shaders" 1
+  bad=0
+  for src in "${sources[@]}"; do
+    name="$(basename "$src")"
+    if [ ! -s "$src.qsb" ]; then
+      printf '  missing bundle: %s.qsb\n' "$name" >&2; bad=1; continue
+    fi
+    want="$(awk -v n="$name" '$2 == n { print $1 }' "$MANIFEST")"
+    if [ "$want" != "$(hash_of "$src")" ]; then
+      printf '  stale bundle: %s changed since %s.qsb was built\n' "$name" "$name" >&2; bad=1
+    fi
+  done
+  [ "$bad" = 0 ] || die "rebuild with scripts/build-shaders" 1
+  printf 'shaders: %d bundle(s) match their sources\n' "${#sources[@]}"
+  exit 0
+fi
+
+find_qsb() {
+  local c
+  for c in "${QSB:-}" /usr/lib/qt6/bin/qsb "$(command -v qsb6 2>/dev/null || true)" "$(command -v qsb 2>/dev/null || true)"; do
+    [ -n "$c" ] && [ -x "$c" ] && { printf '%s' "$c"; return 0; }
+  done
+  c="$(python3 -c 'import PySide6, os; print(os.path.join(os.path.dirname(PySide6.__file__), "qsb"))' 2>/dev/null || true)"
+  [ -n "$c" ] && [ -x "$c" ] && { printf '%s' "$c"; return 0; }
+  return 1
+}
+
+QSB_BIN="$(find_qsb)" || die "no qsb found. On Arch: sudo pacman -S qt6-shadertools" 69
+
+tmp="$(mktemp)"
+trap 'rm -f "$tmp"' EXIT
+for src in "${sources[@]}"; do
+  name="$(basename "$src")"
+  "$QSB_BIN" --glsl "100es,120,150" --hlsl 50 --msl 12 -o "$src.qsb" "$src" \
+    || die "failed to compile $name"
+  printf '%s  %s\n' "$(hash_of "$src")" "$name" >> "$tmp"
+  printf '  compiled %s\n' "$name"
+done
+sort -k2 "$tmp" > "$MANIFEST"
+printf 'shaders: %d compiled with %s\n' "${#sources[@]}" "$QSB_BIN"

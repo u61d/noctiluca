@@ -1,0 +1,4292 @@
+{
+ "quickshell_version": "0.3.2",
+ "generated_by": "tests/extract_qs_api.py",
+ "by_cname": {
+  "Anchors": "Anchors",
+  "AuthFlow": "AuthFlow",
+  "BackgroundEffect": "BackgroundEffect",
+  "BluetoothAdapter": "BluetoothAdapter",
+  "BluetoothAdapterState": "BluetoothAdapterState",
+  "BluetoothDevice": "BluetoothDevice",
+  "BluetoothDeviceState": "BluetoothDeviceState",
+  "BluezQml": "Bluetooth",
+  "BoundComponent": "BoundComponent",
+  "Box": "Box",
+  "Category": "Category",
+  "ClippingRectangle": "ClippingRectangle",
+  "ClippingRectangleBorder": "ClippingRectangleBorder",
+  "ClippingWrapperRectangle": "ClippingWrapperRectangle",
+  "ClippingWrapperRectangleInternal": "ClippingWrapperRectangleInternal",
+  "ColorQuantizer": "ColorQuantizer",
+  "ConnectionFailReason": "ConnectionFailReason",
+  "ConnectionState": "ConnectionState",
+  "DBusMenu": "DBusMenuHandle",
+  "DBusMenuItem": "DBusMenuItem",
+  "DataStream": "DataStream",
+  "DataStreamParser": "DataStreamParser",
+  "DesktopAction": "DesktopAction",
+  "DesktopEntries": "DesktopEntries",
+  "DesktopEntry": "DesktopEntry",
+  "DeviceType": "DeviceType",
+  "EasingCurve": "EasingCurve",
+  "ElapsedTimer": "ElapsedTimer",
+  "ExclusionMode": "ExclusionMode",
+  "FileView": "FileViewInternal",
+  "FileViewAdapter": "FileViewAdapter",
+  "FileViewError": "FileViewError",
+  "FloatingWindowInterface": "FloatingWindow",
+  "GlobalShortcut": "GlobalShortcut",
+  "Greetd": "Greetd",
+  "GreetdState": "GreetdState",
+  "HyprlandFocusGrab": "HyprlandFocusGrab",
+  "HyprlandIpcEvent": "HyprlandEvent",
+  "HyprlandIpcQml": "Hyprland",
+  "HyprlandMonitor": "HyprlandMonitor",
+  "HyprlandToplevel": "HyprlandToplevel",
+  "HyprlandWindow": "HyprlandWindow",
+  "HyprlandWorkspace": "HyprlandWorkspace",
+  "I3IpcEvent": "I3Event",
+  "I3IpcListener": "I3IpcListener",
+  "I3IpcQml": "I3",
+  "I3Monitor": "I3Monitor",
+  "I3Workspace": "I3Workspace",
+  "IconImage": "IconImage",
+  "Identity": "Identity",
+  "IdleInhibitor": "IdleInhibitor",
+  "IdleMonitor": "IdleMonitor",
+  "Intersection": "Intersection",
+  "IpcHandler": "IpcHandler",
+  "JsonAdapter": "JsonAdapter",
+  "JsonObject": "JsonObject",
+  "LazyLoader": "LazyLoader",
+  "MarginWrapperManager": "MarginWrapperManager",
+  "Margins": "Edges",
+  "MprisLoopState": "MprisLoopState",
+  "MprisPlaybackState": "MprisPlaybackState",
+  "MprisPlayer": "MprisPlayer",
+  "MprisQml": "Mpris",
+  "NMConnectionStateReason": "NMConnectionStateReason",
+  "NMDeviceState": "NMDeviceState",
+  "NMDeviceStateReason": "NMDeviceStateReason",
+  "NMSettings": "NMSettings",
+  "Network": "Network",
+  "NetworkBackendType": "NetworkBackendType",
+  "NetworkConnectivity": "NetworkConnectivity",
+  "NetworkDevice": "NetworkDevice",
+  "NetworkingQml": "Networking",
+  "Notification": "Notification",
+  "NotificationAction": "NotificationAction",
+  "NotificationCloseReason": "NotificationCloseReason",
+  "NotificationServerQml": "NotificationServer",
+  "NotificationUrgency": "NotificationUrgency",
+  "ObjectComparison": "ObjectComparison",
+  "PamContext": "PamContext",
+  "PamError": "PamError",
+  "PamResult": "PamResult",
+  "PanelWindowInterface": "PanelWindow",
+  "PendingRegion": "Region",
+  "PerformanceDegradationReason": "PerformanceDegradationReason",
+  "PersistentProperties": "PersistentProperties",
+  "Pipewire": "Pipewire",
+  "PolkitAgent": "PolkitAgent",
+  "PopupAdjustment": "PopupAdjustment",
+  "PopupAnchor": "PopupAnchor",
+  "PowerProfile": "PowerProfile",
+  "PowerProfileHold": "PowerProfileHold",
+  "PowerProfilesQml": "PowerProfiles",
+  "Process": "Process",
+  "ProcessContext": "ProcessContext",
+  "ProxyPopupWindow": "PopupWindow",
+  "ProxyWindowBase": "ProxyWindowBase",
+  "PwAudioChannel": "PwAudioChannel",
+  "PwLinkGroupIface": "PwLinkGroup",
+  "PwLinkIface": "PwLink",
+  "PwLinkState": "PwLinkState",
+  "PwNodeAudioIface": "PwNodeAudio",
+  "PwNodeIface": "PwNode",
+  "PwNodeLinkTracker": "PwNodeLinkTracker",
+  "PwNodePeakMonitor": "PwNodePeakMonitor",
+  "PwNodeType": "PwNodeType",
+  "PwObjectTracker": "PwObjectTracker",
+  "QsMenuAnchor": "QsMenuAnchor",
+  "QsMenuButtonType": "QsMenuButtonType",
+  "QsMenuEntry": "QsMenuEntry",
+  "QsMenuHandle": "QsMenuHandle",
+  "QsMenuOpener": "QsMenuOpener",
+  "QsSurfaceFormat": "QsSurfaceFormat",
+  "QsWindowAttached": "QsWindowAttached",
+  "QuickshellGlobal": "Quickshell",
+  "QuickshellScreenInfo": "ShellScreen",
+  "QuickshellSettings": "QuickshellSettings",
+  "RegionShape": "RegionShape",
+  "ReloadPopup": "ReloadPopupInfo",
+  "ReloadPropagator": "Scope",
+  "Reloadable": "Reloadable",
+  "RetainableHook": "Retainable",
+  "RetainableLock": "RetainableLock",
+  "ScreenProjection": "ScreenProjection",
+  "ScreencopyView": "ScreencopyView",
+  "ScriptModel": "ScriptModel",
+  "ShellRoot": "ShellRoot",
+  "ShortcutInhibitor": "ShortcutInhibitor",
+  "Singleton": "Singleton",
+  "Socket": "Socket",
+  "SocketServer": "SocketServer",
+  "SplitParser": "SplitParser",
+  "Status": "Status",
+  "StatusNotifierItem": "SystemTrayItem",
+  "StatusNotifierWatcher": "StatusNotifierWatcher",
+  "StdioCollector": "StdioCollector",
+  "SystemClock": "SystemClock",
+  "SystemTray": "SystemTray",
+  "Tooltip": "Tooltip",
+  "Toplevel": "Toplevel",
+  "ToplevelManagerQml": "ToplevelManager",
+  "TransformWatcher": "TransformWatcher",
+  "UPowerDevice": "UPowerDevice",
+  "UPowerDeviceState": "UPowerDeviceState",
+  "UPowerDeviceType": "UPowerDeviceType",
+  "UPowerQml": "UPower",
+  "UntypedObjectModel": "ObjectModel",
+  "Variants": "Variants",
+  "WifiDevice": "WifiDevice",
+  "WifiDeviceMode": "WifiDeviceMode",
+  "WifiNetwork": "WifiNetwork",
+  "WifiSecurityType": "WifiSecurityType",
+  "WindowInterface": "QsWindow",
+  "WindowManagerQml": "WindowManager",
+  "Windowset": "Windowset",
+  "WindowsetProjection": "WindowsetProjection",
+  "WiredDevice": "WiredDevice",
+  "WlSessionLock": "WlSessionLock",
+  "WlSessionLockSurface": "WlSessionLockSurface",
+  "WlrKeyboardFocus": "WlrKeyboardFocus",
+  "WlrLayer": "WlrLayer",
+  "WlrLayershell": "WlrLayershell",
+  "WrapperItem": "WrapperItem",
+  "WrapperManager": "WrapperManager",
+  "WrapperMouseArea": "WrapperMouseArea",
+  "WrapperRectangle": "WrapperRectangle",
+  "XPanelWindow": "XPanelWindow"
+ },
+ "types": {
+  "Anchors": {
+   "cname": "Anchors",
+   "base": "",
+   "module": "Quickshell",
+   "props": {
+    "left": "bool",
+    "right": "bool",
+    "top": "bool",
+    "bottom": "bool"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "AuthFlow": {
+   "cname": "AuthFlow",
+   "base": "QObject",
+   "module": "Quickshell.Services.Polkit",
+   "props": {
+    "message": "QString",
+    "iconName": "QString",
+    "actionId": "QString",
+    "cookie": "QString",
+    "identities": "QList<Identity*>",
+    "selectedIdentity": "Identity*",
+    "isResponseRequired": "bool",
+    "inputPrompt": "QString",
+    "responseVisible": "bool",
+    "supplementaryMessage": "QString",
+    "supplementaryIsError": "bool",
+    "isCompleted": "bool",
+    "isSuccessful": "bool",
+    "isCancelled": "bool",
+    "failed": "bool"
+   },
+   "signals": [
+    "authenticationFailed",
+    "authenticationRequestCancelled",
+    "authenticationSucceeded",
+    "failedChanged",
+    "inputPromptChanged",
+    "isCancelledChanged",
+    "isCompletedChanged",
+    "isResponseRequiredChanged",
+    "isSuccessfulChanged",
+    "responseVisibleChanged",
+    "selectedIdentityChanged",
+    "supplementaryIsErrorChanged",
+    "supplementaryMessageChanged"
+   ],
+   "functions": [
+    "cancelAuthenticationRequest",
+    "submit"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "BackgroundEffect": {
+   "cname": "BackgroundEffect",
+   "base": "QObject",
+   "module": "Quickshell.Wayland",
+   "props": {
+    "blurRegion": "PendingRegion*"
+   },
+   "signals": [
+    "blurRegionChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": true,
+   "instantiable": true
+  },
+  "Bluetooth": {
+   "cname": "BluezQml",
+   "base": "QObject",
+   "module": "Quickshell.Bluetooth",
+   "props": {
+    "defaultAdapter": "BluetoothAdapter*",
+    "adapters": "UntypedObjectModel*",
+    "devices": "UntypedObjectModel*"
+   },
+   "signals": [
+    "defaultAdapterChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "BluetoothAdapter": {
+   "cname": "BluetoothAdapter",
+   "base": "QObject",
+   "module": "Quickshell.Bluetooth",
+   "props": {
+    "name": "QString",
+    "enabled": "bool",
+    "state": "BluetoothAdapterState::Enum",
+    "discoverable": "bool",
+    "discoverableTimeout": "quint32",
+    "discovering": "bool",
+    "pairable": "bool",
+    "pairableTimeout": "quint32",
+    "devices": "UntypedObjectModel*",
+    "adapterId": "QString",
+    "dbusPath": "QString"
+   },
+   "signals": [
+    "discoverableChanged",
+    "discoverableTimeoutChanged",
+    "discoveringChanged",
+    "enabledChanged",
+    "nameChanged",
+    "pairableChanged",
+    "pairableTimeoutChanged",
+    "stateChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "BluetoothAdapterState": {
+   "cname": "BluetoothAdapterState",
+   "base": "QObject",
+   "module": "Quickshell.Bluetooth",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "Disabled",
+    "Enabled",
+    "Enabling",
+    "Disabling",
+    "Blocked"
+   ]
+  },
+  "BluetoothDevice": {
+   "cname": "BluetoothDevice",
+   "base": "QObject",
+   "module": "Quickshell.Bluetooth",
+   "props": {
+    "address": "QString",
+    "name": "QString",
+    "deviceName": "QString",
+    "icon": "QString",
+    "state": "BluetoothDeviceState::Enum",
+    "connected": "bool",
+    "paired": "bool",
+    "bonded": "bool",
+    "pairing": "bool",
+    "trusted": "bool",
+    "blocked": "bool",
+    "wakeAllowed": "bool",
+    "batteryAvailable": "bool",
+    "battery": "qreal",
+    "adapter": "BluetoothAdapter*",
+    "dbusPath": "QString"
+   },
+   "signals": [
+    "adapterChanged",
+    "addressChanged",
+    "batteryAvailableChanged",
+    "batteryChanged",
+    "blockedChanged",
+    "bondedChanged",
+    "connectedChanged",
+    "deviceNameChanged",
+    "iconChanged",
+    "nameChanged",
+    "pairedChanged",
+    "pairingChanged",
+    "stateChanged",
+    "trustedChanged",
+    "wakeAllowedChanged"
+   ],
+   "functions": [
+    "cancelPair",
+    "connect",
+    "disconnect",
+    "forget",
+    "pair"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "BluetoothDeviceState": {
+   "cname": "BluetoothDeviceState",
+   "base": "QObject",
+   "module": "Quickshell.Bluetooth",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "Disconnected",
+    "Connected",
+    "Disconnecting",
+    "Connecting"
+   ]
+  },
+  "BoundComponent": {
+   "cname": "BoundComponent",
+   "base": "QQuickItem",
+   "module": "Quickshell",
+   "props": {
+    "item": "QObject*",
+    "sourceComponent": "QQmlComponent*",
+    "source": "QString",
+    "bindValues": "bool",
+    "implicitWidth": "qreal",
+    "implicitHeight": "qreal"
+   },
+   "signals": [
+    "bindValuesChanged",
+    "loaded",
+    "sourceChanged",
+    "sourceComponentChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Box": {
+   "cname": "Box",
+   "base": "",
+   "module": "Quickshell",
+   "props": {
+    "x": "qint32",
+    "y": "qint32",
+    "w": "qint32",
+    "h": "qint32",
+    "width": "qint32",
+    "height": "qint32"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": false
+  },
+  "Category": {
+   "cname": "Category",
+   "base": "",
+   "module": "Quickshell.Services.SystemTray",
+   "props": {},
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "values": [
+    "Hardware",
+    "SystemServices",
+    "ApplicationStatus",
+    "Communications"
+   ]
+  },
+  "ClippingRectangle": {
+   "cname": "ClippingRectangle",
+   "base": "Item",
+   "module": "Quickshell.Widgets",
+   "props": {
+    "contentUnderBorder": "bool",
+    "contentInsideBorder": "bool",
+    "border": "clippingRectangleBorder",
+    "children": "alias",
+    "contentItem": "alias",
+    "rect": "Rectangle",
+    "backgroundColor": "color",
+    "borderColor": "color",
+    "content": "ShaderEffectSource",
+    "antialiasing": "alias",
+    "color": "alias",
+    "radius": "alias",
+    "topLeftRadius": "alias",
+    "topRightRadius": "alias",
+    "bottomLeftRadius": "alias",
+    "bottomRightRadius": "alias",
+    "data": "alias"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false
+  },
+  "ClippingRectangleBorder": {
+   "cname": "ClippingRectangleBorder",
+   "base": "",
+   "module": "Quickshell.Widgets",
+   "props": {
+    "color": "QColor",
+    "pixelAligned": "bool",
+    "width": "int"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": false
+  },
+  "ClippingWrapperRectangle": {
+   "cname": "ClippingWrapperRectangle",
+   "base": "ClippingWrapperRectangleInternal",
+   "module": "Quickshell.Widgets",
+   "props": {
+    "child": "alias",
+    "margin": "alias",
+    "extraMargin": "alias",
+    "topMargin": "alias",
+    "bottomMargin": "alias",
+    "leftMargin": "alias",
+    "rightMargin": "alias",
+    "resizeChild": "alias",
+    "implicitWidth": "alias",
+    "implicitHeight": "alias"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false
+  },
+  "ClippingWrapperRectangleInternal": {
+   "cname": "ClippingWrapperRectangleInternal",
+   "base": "ClippingRectangle",
+   "module": "Quickshell.Widgets",
+   "props": {
+    "__implicitWidthInternal": "alias",
+    "__implicitHeightInternal": "alias"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false
+  },
+  "ColorQuantizer": {
+   "cname": "ColorQuantizer",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "colors": "QList<QColor>",
+    "source": "QUrl",
+    "depth": "qreal",
+    "imageRect": "QRect",
+    "rescaleSize": "qreal"
+   },
+   "signals": [
+    "colorsChanged",
+    "depthChanged",
+    "imageRectChanged",
+    "rescaleSizeChanged",
+    "sourceChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "ConnectionFailReason": {
+   "cname": "ConnectionFailReason",
+   "base": "QObject",
+   "module": "Quickshell.Networking",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "Unknown",
+    "NoSecrets",
+    "WifiClientDisconnected",
+    "WifiClientFailed",
+    "WifiAuthTimeout",
+    "WifiNetworkLost"
+   ]
+  },
+  "ConnectionState": {
+   "cname": "ConnectionState",
+   "base": "QObject",
+   "module": "Quickshell.Networking",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "Unknown",
+    "Connecting",
+    "Connected",
+    "Disconnecting",
+    "Disconnected"
+   ]
+  },
+  "DBusMenuHandle": {
+   "cname": "DBusMenu",
+   "base": "QObject",
+   "module": "Quickshell.DBusMenu",
+   "props": {
+    "menu": "qs::dbus::dbusmenu::DBusMenuItem*"
+   },
+   "signals": [
+    "iconThemePathChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "DBusMenuItem": {
+   "cname": "DBusMenuItem",
+   "base": "QsMenuEntry",
+   "module": "Quickshell.DBusMenu",
+   "props": {
+    "menuHandle": "qs::dbus::dbusmenu::DBusMenu*"
+   },
+   "signals": [
+    "layoutUpdated"
+   ],
+   "functions": [
+    "updateLayout"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "DataStream": {
+   "cname": "DataStream",
+   "base": "QObject",
+   "module": "Quickshell.Io",
+   "props": {
+    "parser": "DataStreamParser*"
+   },
+   "signals": [
+    "readerChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "DataStreamParser": {
+   "cname": "DataStreamParser",
+   "base": "QObject",
+   "module": "Quickshell.Io",
+   "props": {},
+   "signals": [
+    "read"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "DesktopAction": {
+   "cname": "DesktopAction",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "id": "QString",
+    "name": "QString",
+    "icon": "QString",
+    "execString": "QString",
+    "command": "QVector<QString>"
+   },
+   "signals": [
+    "commandChanged",
+    "execStringChanged",
+    "iconChanged",
+    "nameChanged"
+   ],
+   "functions": [
+    "execute"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "DesktopEntries": {
+   "cname": "DesktopEntries",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "applications": "UntypedObjectModel*"
+   },
+   "signals": [
+    "applicationsChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "DesktopEntry": {
+   "cname": "DesktopEntry",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "id": "QString",
+    "name": "QString",
+    "genericName": "QString",
+    "startupClass": "QString",
+    "noDisplay": "bool",
+    "comment": "QString",
+    "icon": "QString",
+    "execString": "QString",
+    "command": "QVector<QString>",
+    "workingDirectory": "QString",
+    "runInTerminal": "bool",
+    "categories": "QVector<QString>",
+    "keywords": "QVector<QString>",
+    "actions": "QVector<DesktopAction*>"
+   },
+   "signals": [
+    "categoriesChanged",
+    "commandChanged",
+    "commentChanged",
+    "execStringChanged",
+    "genericNameChanged",
+    "iconChanged",
+    "keywordsChanged",
+    "nameChanged",
+    "noDisplayChanged",
+    "runInTerminalChanged",
+    "startupClassChanged",
+    "workingDirectoryChanged"
+   ],
+   "functions": [
+    "execute"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "DeviceType": {
+   "cname": "DeviceType",
+   "base": "QObject",
+   "module": "Quickshell.Networking",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "None",
+    "Wifi",
+    "Wired"
+   ]
+  },
+  "EasingCurve": {
+   "cname": "EasingCurve",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "curve": "QEasingCurve"
+   },
+   "signals": [
+    "curveChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Edges": {
+   "cname": "Margins",
+   "base": "",
+   "module": "Quickshell",
+   "props": {
+    "left": "qint32",
+    "right": "qint32",
+    "top": "qint32",
+    "bottom": "qint32"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "ElapsedTimer": {
+   "cname": "ElapsedTimer",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "elapsed",
+    "elapsedMs",
+    "elapsedNs",
+    "restart",
+    "restartMs",
+    "restartNs"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "ExclusionMode": {
+   "cname": "ExclusionMode",
+   "base": "",
+   "module": "Quickshell",
+   "props": {},
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "values": [
+    "Normal",
+    "Ignore",
+    "Auto"
+   ]
+  },
+  "FileView": {
+   "cname": "FileView",
+   "base": "FileViewInternal",
+   "module": "Quickshell.Io",
+   "props": {
+    "preload": "bool",
+    "blockLoading": "bool",
+    "blockAllReads": "bool",
+    "printErrors": "bool",
+    "path": "string"
+   },
+   "signals": [],
+   "functions": [
+    "data",
+    "text"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false
+  },
+  "FileViewAdapter": {
+   "cname": "FileViewAdapter",
+   "base": "QObject",
+   "module": "Quickshell.Io",
+   "props": {},
+   "signals": [
+    "adapterUpdated"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "FileViewError": {
+   "cname": "FileViewError",
+   "base": "QObject",
+   "module": "Quickshell.Io",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "Success",
+    "Unknown",
+    "FileNotFound",
+    "PermissionDenied",
+    "NotAFile"
+   ]
+  },
+  "FileViewInternal": {
+   "cname": "FileView",
+   "base": "QObject",
+   "module": "Quickshell.Io",
+   "props": {
+    "blockWrites": "bool",
+    "atomicWrites": "bool",
+    "watchChanges": "bool",
+    "adapter": "FileViewAdapter*",
+    "loaded": "bool",
+    "path": "QString",
+    "preload": "bool",
+    "blockLoading": "bool",
+    "blockAllReads": "bool",
+    "printErrors": "bool"
+   },
+   "signals": [
+    "adapterChanged",
+    "adapterUpdated",
+    "atomicWritesChanged",
+    "blockAllReadsChanged",
+    "blockLoadingChanged",
+    "blockWritesChanged",
+    "dataChanged",
+    "fileChanged",
+    "internalDataChanged",
+    "internalTextChanged",
+    "loadFailed",
+    "loaded",
+    "loadedOrAsyncChanged",
+    "pathChanged",
+    "preloadChanged",
+    "printErrorsChanged",
+    "saveFailed",
+    "saved",
+    "textChanged",
+    "watchChangesChanged"
+   ],
+   "functions": [
+    "data",
+    "reload",
+    "setData",
+    "setText",
+    "text",
+    "waitForJob",
+    "writeAdapter"
+   ],
+   "enums": [],
+   "hidden": [
+    "__blockAllReads",
+    "__blockLoading",
+    "__data",
+    "__path",
+    "__preload",
+    "__printErrors",
+    "__text"
+   ],
+   "attached": false,
+   "instantiable": true
+  },
+  "FloatingWindow": {
+   "cname": "FloatingWindowInterface",
+   "base": "WindowInterface",
+   "module": "Quickshell",
+   "props": {
+    "title": "QString",
+    "minimumSize": "QSize",
+    "maximumSize": "QSize",
+    "minimized": "bool",
+    "maximized": "bool",
+    "fullscreen": "bool",
+    "parentWindow": "QObject*"
+   },
+   "signals": [
+    "fullscreenChanged",
+    "maximizedChanged",
+    "maximumSizeChanged",
+    "minimizedChanged",
+    "minimumSizeChanged",
+    "parentWindowChanged",
+    "titleChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "GlobalShortcut": {
+   "cname": "GlobalShortcut",
+   "base": "PostReloadHook",
+   "module": "Quickshell.Hyprland",
+   "props": {
+    "pressed": "bool",
+    "appid": "QString",
+    "name": "QString",
+    "description": "QString",
+    "triggerDescription": "QString"
+   },
+   "signals": [
+    "appidChanged",
+    "descriptionChanged",
+    "nameChanged",
+    "pressed",
+    "pressedChanged",
+    "released",
+    "triggerDescriptionChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Greetd": {
+   "cname": "Greetd",
+   "base": "QObject",
+   "module": "Quickshell.Services.Greetd",
+   "props": {
+    "available": "bool",
+    "state": "GreetdState::Enum",
+    "user": "QString"
+   },
+   "signals": [
+    "authFailure",
+    "authMessage",
+    "error",
+    "launched",
+    "readyToLaunch",
+    "stateChanged",
+    "userChanged"
+   ],
+   "functions": [
+    "cancelSession",
+    "createSession",
+    "launch",
+    "respond"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "GreetdState": {
+   "cname": "GreetdState",
+   "base": "QObject",
+   "module": "Quickshell.Services.Greetd",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "Inactive",
+    "Authenticating",
+    "ReadyToLaunch",
+    "Launching",
+    "Launched"
+   ]
+  },
+  "Hyprland": {
+   "cname": "HyprlandIpcQml",
+   "base": "QObject",
+   "module": "Quickshell.Hyprland",
+   "props": {
+    "usingLua": "bool",
+    "requestSocketPath": "QString",
+    "eventSocketPath": "QString",
+    "focusedMonitor": "qs::hyprland::ipc::HyprlandMonitor*",
+    "focusedWorkspace": "qs::hyprland::ipc::HyprlandWorkspace*",
+    "activeToplevel": "qs::hyprland::ipc::HyprlandToplevel*",
+    "monitors": "UntypedObjectModel*",
+    "workspaces": "UntypedObjectModel*",
+    "toplevels": "UntypedObjectModel*"
+   },
+   "signals": [
+    "activeToplevelChanged",
+    "focusedMonitorChanged",
+    "focusedWorkspaceChanged",
+    "rawEvent",
+    "usingLuaChanged"
+   ],
+   "functions": [
+    "dispatch",
+    "monitorFor",
+    "refreshMonitors",
+    "refreshToplevels",
+    "refreshWorkspaces"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "HyprlandEvent": {
+   "cname": "HyprlandIpcEvent",
+   "base": "QObject",
+   "module": "Quickshell.Hyprland",
+   "props": {
+    "name": "QString",
+    "data": "QString"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "HyprlandFocusGrab": {
+   "cname": "HyprlandFocusGrab",
+   "base": "QObject",
+   "module": "Quickshell.Hyprland",
+   "props": {
+    "active": "bool",
+    "windows": "QList<QObject*>"
+   },
+   "signals": [
+    "activeChanged",
+    "cleared",
+    "windowsChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "HyprlandMonitor": {
+   "cname": "HyprlandMonitor",
+   "base": "QObject",
+   "module": "Quickshell.Hyprland",
+   "props": {
+    "id": "qint32",
+    "name": "QString",
+    "description": "QString",
+    "x": "qint32",
+    "y": "qint32",
+    "width": "qint32",
+    "height": "qint32",
+    "scale": "qreal",
+    "lastIpcObject": "QVariantMap",
+    "activeWorkspace": "qs::hyprland::ipc::HyprlandWorkspace*",
+    "focused": "bool"
+   },
+   "signals": [
+    "activeWorkspaceChanged",
+    "descriptionChanged",
+    "focusedChanged",
+    "heightChanged",
+    "idChanged",
+    "lastIpcObjectChanged",
+    "nameChanged",
+    "scaleChanged",
+    "widthChanged",
+    "xChanged",
+    "yChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "HyprlandToplevel": {
+   "cname": "HyprlandToplevel",
+   "base": "QObject",
+   "module": "Quickshell.Hyprland",
+   "props": {
+    "address": "QString",
+    "handle": "HyprlandToplevel*",
+    "wayland": "qs::wayland::toplevel::Toplevel*",
+    "title": "QString",
+    "activated": "bool",
+    "urgent": "bool",
+    "lastIpcObject": "QVariantMap",
+    "workspace": "qs::hyprland::ipc::HyprlandWorkspace*",
+    "monitor": "qs::hyprland::ipc::HyprlandMonitor*"
+   },
+   "signals": [
+    "activatedChanged",
+    "addressChanged",
+    "hyprlandHandleChanged",
+    "lastIpcObjectChanged",
+    "monitorChanged",
+    "titleChanged",
+    "urgentChanged",
+    "waylandHandleChanged",
+    "workspaceChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": true,
+   "instantiable": true
+  },
+  "HyprlandWindow": {
+   "cname": "HyprlandWindow",
+   "base": "QObject",
+   "module": "Quickshell.Hyprland",
+   "props": {
+    "opacity": "qreal",
+    "visibleMask": "PendingRegion*"
+   },
+   "signals": [
+    "opacityChanged",
+    "visibleMaskChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": true,
+   "instantiable": true
+  },
+  "HyprlandWorkspace": {
+   "cname": "HyprlandWorkspace",
+   "base": "QObject",
+   "module": "Quickshell.Hyprland",
+   "props": {
+    "address": "QString",
+    "id": "qint32",
+    "name": "QString",
+    "active": "bool",
+    "focused": "bool",
+    "urgent": "bool",
+    "hasFullscreen": "bool",
+    "lastIpcObject": "QVariantMap",
+    "monitor": "qs::hyprland::ipc::HyprlandMonitor*",
+    "toplevels": "UntypedObjectModel*"
+   },
+   "signals": [
+    "activeChanged",
+    "addressChanged",
+    "focusedChanged",
+    "hasFullscreenChanged",
+    "idChanged",
+    "lastIpcObjectChanged",
+    "monitorChanged",
+    "nameChanged",
+    "typeChanged",
+    "urgentChanged"
+   ],
+   "functions": [
+    "activate"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "I3": {
+   "cname": "I3IpcQml",
+   "base": "QObject",
+   "module": "Quickshell.I3",
+   "props": {
+    "socketPath": "QString",
+    "focusedWorkspace": "qs::i3::ipc::I3Workspace*",
+    "focusedMonitor": "qs::i3::ipc::I3Monitor*",
+    "monitors": "UntypedObjectModel*",
+    "workspaces": "UntypedObjectModel*"
+   },
+   "signals": [
+    "connected",
+    "focusedMonitorChanged",
+    "focusedWorkspaceChanged",
+    "rawEvent"
+   ],
+   "functions": [
+    "dispatch",
+    "findMonitorByName",
+    "findWorkspaceByName",
+    "monitorFor",
+    "refreshMonitors",
+    "refreshWorkspaces"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "I3Event": {
+   "cname": "I3IpcEvent",
+   "base": "QObject",
+   "module": "Quickshell.I3",
+   "props": {
+    "type": "QString",
+    "data": "QString"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "I3IpcListener": {
+   "cname": "I3IpcListener",
+   "base": "PostReloadHook",
+   "module": "Quickshell.I3",
+   "props": {
+    "subscriptions": "QList<QString>"
+   },
+   "signals": [
+    "ipcEvent",
+    "subscriptionsChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "I3Monitor": {
+   "cname": "I3Monitor",
+   "base": "QObject",
+   "module": "Quickshell.I3",
+   "props": {
+    "id": "qint32",
+    "name": "QString",
+    "power": "bool",
+    "activeWorkspace": "qs::i3::ipc::I3Workspace*",
+    "focusedWorkspace": "qs::i3::ipc::I3Workspace*",
+    "x": "qint32",
+    "y": "qint32",
+    "width": "qint32",
+    "height": "qint32",
+    "scale": "qreal",
+    "focused": "bool",
+    "lastIpcObject": "QVariantMap"
+   },
+   "signals": [
+    "activeWorkspaceChanged",
+    "focusedChanged",
+    "heightChanged",
+    "idChanged",
+    "lastIpcObjectChanged",
+    "nameChanged",
+    "powerChanged",
+    "scaleChanged",
+    "widthChanged",
+    "xChanged",
+    "yChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "I3Workspace": {
+   "cname": "I3Workspace",
+   "base": "QObject",
+   "module": "Quickshell.I3",
+   "props": {
+    "id": "qint32",
+    "name": "QString",
+    "number": "qint32",
+    "num": "qint32",
+    "urgent": "bool",
+    "active": "bool",
+    "focused": "bool",
+    "monitor": "qs::i3::ipc::I3Monitor*",
+    "lastIpcObject": "QVariantMap"
+   },
+   "signals": [
+    "activeChanged",
+    "focusedChanged",
+    "idChanged",
+    "lastIpcObjectChanged",
+    "monitorChanged",
+    "nameChanged",
+    "numberChanged",
+    "urgentChanged"
+   ],
+   "functions": [
+    "activate"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "IconImage": {
+   "cname": "IconImage",
+   "base": "Item",
+   "module": "Quickshell.Widgets",
+   "props": {
+    "status": "alias",
+    "implicitSize": "real",
+    "actualSize": "real",
+    "source": "alias",
+    "asynchronous": "alias",
+    "mipmap": "alias",
+    "backer": "alias"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false
+  },
+  "Identity": {
+   "cname": "Identity",
+   "base": "QObject",
+   "module": "Quickshell.Services.Polkit",
+   "props": {
+    "id": "quint32",
+    "string": "QString",
+    "displayName": "QString",
+    "isGroup": "bool"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": false
+  },
+  "IdleInhibitor": {
+   "cname": "IdleInhibitor",
+   "base": "QObject",
+   "module": "Quickshell.Wayland",
+   "props": {
+    "enabled": "bool",
+    "window": "QObject*"
+   },
+   "signals": [
+    "enabledChanged",
+    "windowChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "IdleMonitor": {
+   "cname": "IdleMonitor",
+   "base": "PostReloadHook",
+   "module": "Quickshell.Wayland",
+   "props": {
+    "enabled": "bool",
+    "timeout": "qreal",
+    "respectInhibitors": "bool",
+    "isIdle": "bool"
+   },
+   "signals": [
+    "enabledChanged",
+    "isIdleChanged",
+    "respectInhibitorsChanged",
+    "timeoutChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Intersection": {
+   "cname": "Intersection",
+   "base": "",
+   "module": "Quickshell",
+   "props": {},
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "values": [
+    "Combine",
+    "Subtract",
+    "Intersect",
+    "Xor"
+   ]
+  },
+  "IpcHandler": {
+   "cname": "IpcHandler",
+   "base": "PostReloadHook",
+   "module": "Quickshell.Io",
+   "props": {
+    "enabled": "bool",
+    "target": "QString"
+   },
+   "signals": [
+    "enabledChanged",
+    "targetChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "JsonAdapter": {
+   "cname": "JsonAdapter",
+   "base": "FileViewAdapter",
+   "module": "Quickshell.Io",
+   "props": {},
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "JsonObject": {
+   "cname": "JsonObject",
+   "base": "QObject",
+   "module": "Quickshell.Io",
+   "props": {},
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "LazyLoader": {
+   "cname": "LazyLoader",
+   "base": "Reloadable",
+   "module": "Quickshell",
+   "props": {
+    "item": "QObject*",
+    "loading": "bool",
+    "active": "bool",
+    "activeAsync": "bool",
+    "component": "QQmlComponent*",
+    "source": "QString"
+   },
+   "signals": [
+    "activeChanged",
+    "componentChanged",
+    "itemChanged",
+    "loadingChanged",
+    "sourceChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "MarginWrapperManager": {
+   "cname": "MarginWrapperManager",
+   "base": "WrapperManager",
+   "module": "Quickshell.Widgets",
+   "props": {
+    "margin": "qreal",
+    "extraMargin": "qreal",
+    "topMargin": "qreal",
+    "bottomMargin": "qreal",
+    "leftMargin": "qreal",
+    "rightMargin": "qreal",
+    "resizeChild": "bool",
+    "implicitWidth": "qreal",
+    "implicitHeight": "qreal"
+   },
+   "signals": [
+    "bottomMarginChanged",
+    "extraMarginChanged",
+    "implicitHeightChanged",
+    "implicitWidthChanged",
+    "leftMarginChanged",
+    "marginChanged",
+    "resizeChildChanged",
+    "rightMarginChanged",
+    "topMarginChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Mpris": {
+   "cname": "MprisQml",
+   "base": "QObject",
+   "module": "Quickshell.Services.Mpris",
+   "props": {
+    "players": "UntypedObjectModel*"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "MprisLoopState": {
+   "cname": "MprisLoopState",
+   "base": "QObject",
+   "module": "Quickshell.Services.Mpris",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "None",
+    "Track",
+    "Playlist"
+   ]
+  },
+  "MprisPlaybackState": {
+   "cname": "MprisPlaybackState",
+   "base": "QObject",
+   "module": "Quickshell.Services.Mpris",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "Stopped",
+    "Playing",
+    "Paused"
+   ]
+  },
+  "MprisPlayer": {
+   "cname": "MprisPlayer",
+   "base": "QObject",
+   "module": "Quickshell.Services.Mpris",
+   "props": {
+    "canControl": "bool",
+    "canPlay": "bool",
+    "canPause": "bool",
+    "canTogglePlaying": "bool",
+    "canSeek": "bool",
+    "canGoNext": "bool",
+    "canGoPrevious": "bool",
+    "canQuit": "bool",
+    "canRaise": "bool",
+    "canSetFullscreen": "bool",
+    "identity": "QString",
+    "desktopEntry": "QString",
+    "dbusName": "QString",
+    "position": "qreal",
+    "positionSupported": "bool",
+    "length": "qreal",
+    "lengthSupported": "bool",
+    "volume": "qreal",
+    "volumeSupported": "bool",
+    "metadata": "QVariantMap",
+    "uniqueId": "quint32",
+    "trackTitle": "QString",
+    "trackArtist": "QString",
+    "trackArtists": "QString",
+    "trackAlbum": "QString",
+    "trackAlbumArtist": "QString",
+    "trackArtUrl": "QString",
+    "playbackState": "qs::service::mpris::MprisPlaybackState::Enum",
+    "isPlaying": "bool",
+    "loopState": "qs::service::mpris::MprisLoopState::Enum",
+    "loopSupported": "bool",
+    "rate": "qreal",
+    "minRate": "qreal",
+    "maxRate": "qreal",
+    "shuffle": "bool",
+    "shuffleSupported": "bool",
+    "fullscreen": "bool",
+    "supportedUriSchemes": "QList<QString>",
+    "supportedMimeTypes": "QList<QString>"
+   },
+   "signals": [
+    "canControlChanged",
+    "canGoNextChanged",
+    "canGoPreviousChanged",
+    "canPauseChanged",
+    "canPlayChanged",
+    "canQuitChanged",
+    "canRaiseChanged",
+    "canSeekChanged",
+    "canSetFullscreenChanged",
+    "canTogglePlayingChanged",
+    "desktopEntryChanged",
+    "fullscreenChanged",
+    "identityChanged",
+    "isPlayingChanged",
+    "lengthChanged",
+    "lengthSupportedChanged",
+    "loopStateChanged",
+    "loopSupportedChanged",
+    "maxRateChanged",
+    "metadataChanged",
+    "minRateChanged",
+    "playbackStateChanged",
+    "positionChanged",
+    "positionSupportedChanged",
+    "postTrackChanged",
+    "rateChanged",
+    "ready",
+    "shuffleChanged",
+    "shuffleSupportedChanged",
+    "supportedMimeTypesChanged",
+    "supportedUriSchemesChanged",
+    "trackAlbumArtistChanged",
+    "trackAlbumChanged",
+    "trackArtUrlChanged",
+    "trackArtistChanged",
+    "trackChanged",
+    "trackTitleChanged",
+    "uniqueIdChanged",
+    "volumeChanged",
+    "volumeSupportedChanged"
+   ],
+   "functions": [
+    "next",
+    "openUri",
+    "pause",
+    "play",
+    "previous",
+    "quit",
+    "raise",
+    "seek",
+    "stop",
+    "togglePlaying"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "NMConnectionStateReason": {
+   "cname": "NMConnectionStateReason",
+   "base": "QObject",
+   "module": "Quickshell.Networking",
+   "props": {},
+   "signals": [],
+   "functions": [],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "Unknown",
+    "None",
+    "UserDisconnected",
+    "DeviceDisconnected",
+    "ServiceStopped",
+    "IpConfigInvalid",
+    "ConnectTimeout",
+    "ServiceStartTimeout",
+    "ServiceStartFailed",
+    "NoSecrets",
+    "LoginFailed",
+    "ConnectionRemoved",
+    "DependencyFailed",
+    "DeviceRealizeFailed",
+    "DeviceRemoved"
+   ]
+  },
+  "NMDeviceState": {
+   "cname": "NMDeviceState",
+   "base": "QObject",
+   "module": "Quickshell.Networking",
+   "props": {},
+   "signals": [],
+   "functions": [],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "Unknown",
+    "Unmanaged",
+    "Unavailable",
+    "Disconnected",
+    "Prepare",
+    "Config",
+    "NeedAuth",
+    "IPConfig",
+    "IPCheck",
+    "Secondaries",
+    "Activated",
+    "Deactivating",
+    "Failed"
+   ]
+  },
+  "NMDeviceStateReason": {
+   "cname": "NMDeviceStateReason",
+   "base": "QObject",
+   "module": "Quickshell.Networking",
+   "props": {},
+   "signals": [],
+   "functions": [],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "None",
+    "Unknown",
+    "NowManaged",
+    "NowUnmanaged",
+    "ConfigFailed",
+    "IpConfigUnavailable",
+    "IpConfigExpired",
+    "NoSecrets",
+    "SupplicantDisconnect",
+    "SupplicantConfigFailed",
+    "SupplicantFailed",
+    "SupplicantTimeout",
+    "PppStartFailed",
+    "PppDisconnect",
+    "PppFailed",
+    "DhcpStartFailed",
+    "DhcpError",
+    "DhcpFailed",
+    "SharedStartFailed",
+    "SharedFailed",
+    "AutoIpStartFailed",
+    "AutoIpError",
+    "AutoIpFailed",
+    "ModemBusy",
+    "ModemNoDialTone",
+    "ModemNoCarrier",
+    "ModemDialTimeout",
+    "ModemDialFailed",
+    "ModemInitFailed",
+    "GsmApnFailed",
+    "GsmRegistrationNotSearching",
+    "GsmRegistrationDenied",
+    "GsmRegistrationTimeout",
+    "GsmRegistrationFailed",
+    "GsmPinCheckFailed",
+    "FirmwareMissing",
+    "Removed",
+    "Sleeping",
+    "ConnectionRemoved",
+    "UserRequested",
+    "Carrier",
+    "ConnectionAssumed",
+    "SupplicantAvailable",
+    "ModemNotFound",
+    "BtFailed",
+    "GsmSimNotInserted",
+    "GsmSimPinRequired",
+    "GsmSimPukRequired",
+    "GsmSimWrong",
+    "InfinibandMode",
+    "DependencyFailed",
+    "Br2684Failed",
+    "ModemManagerUnavailable",
+    "SsidNotFound",
+    "SecondaryConnectionFailed",
+    "DcbFcoeFailed",
+    "TeamdControlFailed",
+    "ModemFailed",
+    "ModemAvailable",
+    "SimPinIncorrect",
+    "NewActivation",
+    "ParentChanged",
+    "ParentManagedChanged",
+    "OvsdbFailed",
+    "IpAddressDuplicate",
+    "IpMethodUnsupported",
+    "SriovConfigurationFailed",
+    "PeerNotFound",
+    "DeviceHandlerFailed",
+    "UnmanagedByDefault",
+    "UnmanagedExternalDown",
+    "UnmanagedLinkNotInit",
+    "UnmanagedQuitting",
+    "UnmanagedManagerDisabled",
+    "UnmanagedUserConf",
+    "UnmanagedUserExplicit",
+    "UnmanagedUserSettings",
+    "UnmanagedUserUdev",
+    "NetworkingOff"
+   ]
+  },
+  "NMSettings": {
+   "cname": "NMSettings",
+   "base": "QObject",
+   "module": "Quickshell.Networking",
+   "props": {
+    "id": "QString",
+    "uuid": "QString"
+   },
+   "signals": [
+    "idChanged",
+    "loaded",
+    "settingsChanged",
+    "uuidChanged"
+   ],
+   "functions": [
+    "clearSecrets",
+    "forget",
+    "read",
+    "write"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Network": {
+   "cname": "Network",
+   "base": "QObject",
+   "module": "Quickshell.Networking",
+   "props": {
+    "name": "QString",
+    "device": "NetworkDevice*",
+    "nmSettings": "QList<NMSettings*>",
+    "connected": "bool",
+    "known": "bool",
+    "state": "ConnectionState::Enum",
+    "stateChanging": "bool"
+   },
+   "signals": [
+    "connectedChanged",
+    "connectionFailed",
+    "knownChanged",
+    "nameChanged",
+    "nmSettingsChanged",
+    "requestConnect",
+    "requestConnectWithSettings",
+    "requestDisconnect",
+    "requestForget",
+    "stateChanged",
+    "stateChangingChanged"
+   ],
+   "functions": [
+    "connect",
+    "connectWithSettings",
+    "disconnect",
+    "forget"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "NetworkBackendType": {
+   "cname": "NetworkBackendType",
+   "base": "QObject",
+   "module": "Quickshell.Networking",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "None",
+    "NetworkManager"
+   ]
+  },
+  "NetworkConnectivity": {
+   "cname": "NetworkConnectivity",
+   "base": "QObject",
+   "module": "Quickshell.Networking",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "Unknown",
+    "None",
+    "Portal",
+    "Limited",
+    "Full"
+   ]
+  },
+  "NetworkDevice": {
+   "cname": "NetworkDevice",
+   "base": "QObject",
+   "module": "Quickshell.Networking",
+   "props": {
+    "type": "DeviceType::Enum",
+    "name": "QString",
+    "networks": "UntypedObjectModel*",
+    "address": "QString",
+    "connected": "bool",
+    "state": "qs::network::ConnectionState::Enum",
+    "nmManaged": "bool",
+    "autoconnect": "bool"
+   },
+   "signals": [
+    "addressChanged",
+    "autoconnectChanged",
+    "connectedChanged",
+    "nameChanged",
+    "nmManagedChanged",
+    "requestDisconnect",
+    "requestSetAutoconnect",
+    "requestSetNmManaged",
+    "stateChanged"
+   ],
+   "functions": [
+    "disconnect"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Networking": {
+   "cname": "NetworkingQml",
+   "base": "QObject",
+   "module": "Quickshell.Networking",
+   "props": {
+    "devices": "UntypedObjectModel*",
+    "backend": "qs::network::NetworkBackendType::Enum",
+    "wifiEnabled": "bool",
+    "wifiHardwareEnabled": "bool",
+    "canCheckConnectivity": "bool",
+    "connectivityCheckEnabled": "bool",
+    "connectivity": "qs::network::NetworkConnectivity::Enum"
+   },
+   "signals": [
+    "canCheckConnectivityChanged",
+    "connectivityChanged",
+    "connectivityCheckEnabledChanged",
+    "wifiEnabledChanged",
+    "wifiHardwareEnabledChanged"
+   ],
+   "functions": [
+    "checkConnectivity"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Notification": {
+   "cname": "Notification",
+   "base": "QObject",
+   "module": "Quickshell.Services.Notifications",
+   "props": {
+    "id": "quint32",
+    "tracked": "bool",
+    "lastGeneration": "bool",
+    "expireTimeout": "qreal",
+    "appName": "QString",
+    "appIcon": "QString",
+    "summary": "QString",
+    "body": "QString",
+    "urgency": "qs::service::notifications::NotificationUrgency::Enum",
+    "actions": "QList<qs::service::notifications::NotificationAction*>",
+    "hasActionIcons": "bool",
+    "resident": "bool",
+    "transient": "bool",
+    "desktopEntry": "QString",
+    "image": "QString",
+    "hasInlineReply": "bool",
+    "inlineReplyPlaceholder": "QString",
+    "hints": "QVariantMap"
+   },
+   "signals": [
+    "actionsChanged",
+    "appIconChanged",
+    "appNameChanged",
+    "bodyChanged",
+    "closed",
+    "desktopEntryChanged",
+    "expireTimeoutChanged",
+    "hasActionIconsChanged",
+    "hasInlineReplyChanged",
+    "hintsChanged",
+    "imageChanged",
+    "inlineReplyPlaceholderChanged",
+    "residentChanged",
+    "summaryChanged",
+    "trackedChanged",
+    "transientChanged",
+    "urgencyChanged"
+   ],
+   "functions": [
+    "dismiss",
+    "expire",
+    "sendInlineReply"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "NotificationAction": {
+   "cname": "NotificationAction",
+   "base": "QObject",
+   "module": "Quickshell.Services.Notifications",
+   "props": {
+    "identifier": "QString",
+    "text": "QString"
+   },
+   "signals": [
+    "textChanged"
+   ],
+   "functions": [
+    "invoke"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "NotificationCloseReason": {
+   "cname": "NotificationCloseReason",
+   "base": "QObject",
+   "module": "Quickshell.Services.Notifications",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "Expired",
+    "Dismissed",
+    "CloseRequested"
+   ]
+  },
+  "NotificationServer": {
+   "cname": "NotificationServerQml",
+   "base": "PostReloadHook",
+   "module": "Quickshell.Services.Notifications",
+   "props": {
+    "keepOnReload": "bool",
+    "persistenceSupported": "bool",
+    "bodySupported": "bool",
+    "bodyMarkupSupported": "bool",
+    "bodyHyperlinksSupported": "bool",
+    "bodyImagesSupported": "bool",
+    "actionsSupported": "bool",
+    "actionIconsSupported": "bool",
+    "imageSupported": "bool",
+    "inlineReplySupported": "bool",
+    "trackedNotifications": "UntypedObjectModel*",
+    "extraHints": "QVector<QString>"
+   },
+   "signals": [
+    "actionIconsSupportedChanged",
+    "actionsSupportedChanged",
+    "bodyHyperlinksSupportedChanged",
+    "bodyImagesSupportedChanged",
+    "bodyMarkupSupportedChanged",
+    "bodySupportedChanged",
+    "extraHintsChanged",
+    "imageSupportedChanged",
+    "inlineReplySupportedChanged",
+    "keepOnReloadChanged",
+    "notification",
+    "persistenceSupportedChanged",
+    "trackedNotificationsChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "NotificationUrgency": {
+   "cname": "NotificationUrgency",
+   "base": "QObject",
+   "module": "Quickshell.Services.Notifications",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "Low",
+    "Normal",
+    "Critical"
+   ]
+  },
+  "ObjectComparison": {
+   "cname": "ObjectComparison",
+   "base": "",
+   "module": "Quickshell",
+   "props": {},
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "values": [
+    "Identity",
+    "Structure"
+   ]
+  },
+  "ObjectModel": {
+   "cname": "UntypedObjectModel",
+   "base": "QAbstractListModel",
+   "module": "Quickshell",
+   "props": {
+    "values": "QList<QObject*>"
+   },
+   "signals": [
+    "objectInsertedPost",
+    "objectInsertedPre",
+    "objectRemovedPost",
+    "objectRemovedPre",
+    "valuesChanged"
+   ],
+   "functions": [
+    "indexOf"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "PamContext": {
+   "cname": "PamContext",
+   "base": "QObject",
+   "module": "Quickshell.Services.Pam",
+   "props": {
+    "active": "bool",
+    "config": "QString",
+    "configDirectory": "QString",
+    "user": "QString",
+    "message": "QString",
+    "messageIsError": "bool",
+    "responseRequired": "bool",
+    "responseVisible": "bool"
+   },
+   "signals": [
+    "activeChanged",
+    "completed",
+    "configChanged",
+    "configDirectoryChanged",
+    "error",
+    "messageChanged",
+    "messageIsErrorChanged",
+    "pamMessage",
+    "responseRequiredChanged",
+    "responseVisibleChanged",
+    "userChanged"
+   ],
+   "functions": [
+    "abort",
+    "respond",
+    "start"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "PamError": {
+   "cname": "PamError",
+   "base": "QObject",
+   "module": "Quickshell.Services.Pam",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "StartFailed",
+    "TryAuthFailed",
+    "InternalError"
+   ]
+  },
+  "PamResult": {
+   "cname": "PamResult",
+   "base": "QObject",
+   "module": "Quickshell.Services.Pam",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "Success",
+    "Failed",
+    "Error",
+    "MaxTries"
+   ]
+  },
+  "PanelWindow": {
+   "cname": "PanelWindowInterface",
+   "base": "WindowInterface",
+   "module": "Quickshell",
+   "props": {
+    "anchors": "Anchors",
+    "margins": "Margins",
+    "exclusiveZone": "qint32",
+    "exclusionMode": "ExclusionMode::Enum",
+    "aboveWindows": "bool",
+    "focusable": "bool"
+   },
+   "signals": [
+    "aboveWindowsChanged",
+    "anchorsChanged",
+    "exclusionModeChanged",
+    "exclusiveZoneChanged",
+    "focusableChanged",
+    "marginsChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "PerformanceDegradationReason": {
+   "cname": "PerformanceDegradationReason",
+   "base": "QObject",
+   "module": "Quickshell.Services.UPower",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "None",
+    "LapDetected",
+    "HighTemperature"
+   ]
+  },
+  "PersistentProperties": {
+   "cname": "PersistentProperties",
+   "base": "Reloadable",
+   "module": "Quickshell",
+   "props": {},
+   "signals": [
+    "loaded",
+    "reloaded"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Pipewire": {
+   "cname": "Pipewire",
+   "base": "QObject",
+   "module": "Quickshell.Services.Pipewire",
+   "props": {
+    "nodes": "UntypedObjectModel*",
+    "links": "UntypedObjectModel*",
+    "linkGroups": "UntypedObjectModel*",
+    "defaultAudioSink": "qs::service::pipewire::PwNodeIface*",
+    "defaultAudioSource": "qs::service::pipewire::PwNodeIface*",
+    "preferredDefaultAudioSink": "qs::service::pipewire::PwNodeIface*",
+    "preferredDefaultAudioSource": "qs::service::pipewire::PwNodeIface*",
+    "ready": "bool"
+   },
+   "signals": [
+    "defaultAudioSinkChanged",
+    "defaultAudioSourceChanged",
+    "defaultConfiguredAudioSinkChanged",
+    "defaultConfiguredAudioSourceChanged",
+    "readyChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "PolkitAgent": {
+   "cname": "PolkitAgent",
+   "base": "QObject",
+   "module": "Quickshell.Services.Polkit",
+   "props": {
+    "path": "QString",
+    "isRegistered": "bool",
+    "isActive": "bool",
+    "flow": "AuthFlow*"
+   },
+   "signals": [
+    "authenticationRequestStarted",
+    "flowChanged",
+    "isActiveChanged",
+    "isRegisteredChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "PopupAdjustment": {
+   "cname": "PopupAdjustment",
+   "base": "",
+   "module": "Quickshell",
+   "props": {},
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "values": [
+    "None",
+    "SlideX",
+    "SlideY",
+    "FlipX",
+    "FlipY",
+    "ResizeX",
+    "ResizeY"
+   ]
+  },
+  "PopupAnchor": {
+   "cname": "PopupAnchor",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "window": "QObject*",
+    "item": "QQuickItem*",
+    "rect": "Box",
+    "margins": "Margins",
+    "edges": "Edges::Flags",
+    "gravity": "Edges::Flags",
+    "adjustment": "PopupAdjustment::Flags"
+   },
+   "signals": [
+    "adjustmentChanged",
+    "anchoring",
+    "backingWindowVisibilityChanged",
+    "edgesChanged",
+    "gravityChanged",
+    "itemChanged",
+    "marginsChanged",
+    "rectChanged",
+    "windowChanged",
+    "windowRectChanged"
+   ],
+   "functions": [
+    "updateAnchor"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "PopupWindow": {
+   "cname": "ProxyPopupWindow",
+   "base": "ProxyWindowBase",
+   "module": "Quickshell",
+   "props": {
+    "parentWindow": "QObject*",
+    "relativeX": "qint32",
+    "relativeY": "qint32",
+    "anchor": "PopupAnchor*",
+    "grabFocus": "bool",
+    "visible": "bool",
+    "screen": "QuickshellScreenInfo*"
+   },
+   "signals": [
+    "grabFocusChanged",
+    "parentWindowChanged",
+    "relativeXChanged",
+    "relativeYChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "PowerProfile": {
+   "cname": "PowerProfile",
+   "base": "QObject",
+   "module": "Quickshell.Services.UPower",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "PowerSaver",
+    "Balanced",
+    "Performance"
+   ]
+  },
+  "PowerProfileHold": {
+   "cname": "PowerProfileHold",
+   "base": "",
+   "module": "Quickshell.Services.UPower",
+   "props": {
+    "profile": "qs::service::upower::PowerProfile::Enum",
+    "applicationId": "QString",
+    "reason": "QString"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": false
+  },
+  "PowerProfiles": {
+   "cname": "PowerProfilesQml",
+   "base": "QObject",
+   "module": "Quickshell.Services.UPower",
+   "props": {
+    "profile": "qs::service::upower::PowerProfile::Enum",
+    "hasPerformanceProfile": "bool",
+    "degradationReason": "qs::service::upower::PerformanceDegradationReason::Enum",
+    "holds": "QList<qs::service::upower::PowerProfileHold>"
+   },
+   "signals": [
+    "degradationReasonChanged",
+    "hasPerformanceProfileChanged",
+    "holdsChanged",
+    "profileChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Process": {
+   "cname": "Process",
+   "base": "PostReloadHook",
+   "module": "Quickshell.Io",
+   "props": {
+    "running": "bool",
+    "processId": "QVariant",
+    "command": "QList<QString>",
+    "workingDirectory": "QString",
+    "environment": "QVariantHash",
+    "clearEnvironment": "bool",
+    "stdout": "DataStreamParser*",
+    "stderr": "DataStreamParser*",
+    "stdinEnabled": "bool"
+   },
+   "signals": [
+    "commandChanged",
+    "environmentChanged",
+    "environmentClearChanged",
+    "exited",
+    "processIdChanged",
+    "runningChanged",
+    "started",
+    "stderrParserChanged",
+    "stdinEnabledChanged",
+    "stdoutParserChanged",
+    "workingDirectoryChanged"
+   ],
+   "functions": [
+    "exec",
+    "signal",
+    "startDetached",
+    "write"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "ProcessContext": {
+   "cname": "ProcessContext",
+   "base": "",
+   "module": "Quickshell.Io",
+   "props": {
+    "command": "QList<QString>",
+    "environment": "QVariantHash",
+    "clearEnvironment": "bool",
+    "workingDirectory": "QString",
+    "unbindStdout": "bool"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": false
+  },
+  "ProxyWindowBase": {
+   "cname": "ProxyWindowBase",
+   "base": "Reloadable",
+   "module": "Quickshell",
+   "props": {
+    "_backingWindow": "QQuickWindow*",
+    "contentItem": "QQuickItem*",
+    "visible": "bool",
+    "implicitWidth": "qint32",
+    "implicitHeight": "qint32",
+    "width": "qint32",
+    "height": "qint32",
+    "devicePixelRatio": "qreal",
+    "screen": "QuickshellScreenInfo*",
+    "color": "QColor",
+    "mask": "PendingRegion*",
+    "windowTransform": "QObject*",
+    "backingWindowVisible": "bool",
+    "surfaceFormat": "QsSurfaceFormat",
+    "updatesEnabled": "bool",
+    "data": "QQmlListProperty<QObject>"
+   },
+   "signals": [
+    "backerVisibilityChanged",
+    "closed",
+    "colorChanged",
+    "devicePixelRatioChanged",
+    "heightChanged",
+    "implicitHeightChanged",
+    "implicitWidthChanged",
+    "maskChanged",
+    "polished",
+    "resourcesLost",
+    "screenChanged",
+    "surfaceFormatChanged",
+    "updatesEnabledChanged",
+    "visibleChanged",
+    "widthChanged",
+    "windowConnected",
+    "windowDestroyed",
+    "windowTransformChanged",
+    "xChanged",
+    "yChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": false
+  },
+  "PwAudioChannel": {
+   "cname": "PwAudioChannel",
+   "base": "QObject",
+   "module": "Quickshell.Services.Pipewire",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "PwLink": {
+   "cname": "PwLinkIface",
+   "base": "PwObjectIface",
+   "module": "Quickshell.Services.Pipewire",
+   "props": {
+    "id": "quint32",
+    "target": "qs::service::pipewire::PwNodeIface*",
+    "source": "qs::service::pipewire::PwNodeIface*",
+    "state": "PwLinkState::Enum"
+   },
+   "signals": [
+    "stateChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "PwLinkGroup": {
+   "cname": "PwLinkGroupIface",
+   "base": "QObject",
+   "module": "Quickshell.Services.Pipewire",
+   "props": {
+    "target": "qs::service::pipewire::PwNodeIface*",
+    "source": "qs::service::pipewire::PwNodeIface*",
+    "state": "qs::service::pipewire::PwLinkState::Enum"
+   },
+   "signals": [
+    "stateChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "PwLinkState": {
+   "cname": "PwLinkState",
+   "base": "QObject",
+   "module": "Quickshell.Services.Pipewire",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "PwNode": {
+   "cname": "PwNodeIface",
+   "base": "PwObjectIface",
+   "module": "Quickshell.Services.Pipewire",
+   "props": {
+    "id": "quint32",
+    "name": "QString",
+    "description": "QString",
+    "nickname": "QString",
+    "isSink": "bool",
+    "isStream": "bool",
+    "type": "qs::service::pipewire::PwNodeType::Flags",
+    "properties": "QVariantMap",
+    "audio": "qs::service::pipewire::PwNodeAudioIface*",
+    "ready": "bool"
+   },
+   "signals": [
+    "propertiesChanged",
+    "readyChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "PwNodeAudio": {
+   "cname": "PwNodeAudioIface",
+   "base": "QObject",
+   "module": "Quickshell.Services.Pipewire",
+   "props": {
+    "muted": "bool",
+    "volume": "float",
+    "channels": "QVector<qs::service::pipewire::PwAudioChannel::Enum>",
+    "volumes": "QVector<float>"
+   },
+   "signals": [
+    "channelsChanged",
+    "mutedChanged",
+    "volumesChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "PwNodeLinkTracker": {
+   "cname": "PwNodeLinkTracker",
+   "base": "QObject",
+   "module": "Quickshell.Services.Pipewire",
+   "props": {
+    "node": "qs::service::pipewire::PwNodeIface*",
+    "linkGroups": "QQmlListProperty<qs::service::pipewire::PwLinkGroupIface>"
+   },
+   "signals": [
+    "linkGroupsChanged",
+    "nodeChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "PwNodePeakMonitor": {
+   "cname": "PwNodePeakMonitor",
+   "base": "QObject",
+   "module": "Quickshell.Services.Pipewire",
+   "props": {
+    "node": "qs::service::pipewire::PwNodeIface*",
+    "enabled": "bool",
+    "peaks": "QVector<float>",
+    "peak": "float",
+    "channels": "QVector<qs::service::pipewire::PwAudioChannel::Enum>"
+   },
+   "signals": [
+    "channelsChanged",
+    "enabledChanged",
+    "nodeChanged",
+    "peakChanged",
+    "peaksChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "PwNodeType": {
+   "cname": "PwNodeType",
+   "base": "QObject",
+   "module": "Quickshell.Services.Pipewire",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Flag"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "PwObjectTracker": {
+   "cname": "PwObjectTracker",
+   "base": "QObject",
+   "module": "Quickshell.Services.Pipewire",
+   "props": {
+    "objects": "QList<QObject*>"
+   },
+   "signals": [
+    "objectsChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "QsMenuAnchor": {
+   "cname": "QsMenuAnchor",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "anchor": "PopupAnchor*",
+    "menu": "qs::menu::QsMenuHandle*",
+    "visible": "bool"
+   },
+   "signals": [
+    "closed",
+    "menuChanged",
+    "opened",
+    "visibleChanged"
+   ],
+   "functions": [
+    "close",
+    "open"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "QsMenuButtonType": {
+   "cname": "QsMenuButtonType",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "None",
+    "CheckBox",
+    "RadioButton"
+   ]
+  },
+  "QsMenuEntry": {
+   "cname": "QsMenuEntry",
+   "base": "QsMenuHandle",
+   "module": "Quickshell",
+   "props": {
+    "isSeparator": "bool",
+    "enabled": "bool",
+    "text": "QString",
+    "icon": "QString",
+    "buttonType": "qs::menu::QsMenuButtonType::Enum",
+    "checkState": "Qt::CheckState",
+    "hasChildren": "bool"
+   },
+   "signals": [
+    "buttonTypeChanged",
+    "checkStateChanged",
+    "closed",
+    "enabledChanged",
+    "hasChildrenChanged",
+    "iconChanged",
+    "isSeparatorChanged",
+    "opened",
+    "textChanged",
+    "triggered"
+   ],
+   "functions": [
+    "display"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "QsMenuHandle": {
+   "cname": "QsMenuHandle",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {},
+   "signals": [
+    "menuChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "QsMenuOpener": {
+   "cname": "QsMenuOpener",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "menu": "qs::menu::QsMenuHandle*",
+    "children": "UntypedObjectModel*"
+   },
+   "signals": [
+    "childrenChanged",
+    "menuChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "QsSurfaceFormat": {
+   "cname": "QsSurfaceFormat",
+   "base": "",
+   "module": "Quickshell",
+   "props": {
+    "opaque": "bool"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": false
+  },
+  "QsWindow": {
+   "cname": "WindowInterface",
+   "base": "Reloadable",
+   "module": "Quickshell",
+   "props": {
+    "contentItem": "QQuickItem*",
+    "visible": "bool",
+    "backingWindowVisible": "bool",
+    "implicitWidth": "qint32",
+    "implicitHeight": "qint32",
+    "width": "qint32",
+    "height": "qint32",
+    "devicePixelRatio": "qreal",
+    "screen": "QuickshellScreenInfo*",
+    "windowTransform": "QObject*",
+    "color": "QColor",
+    "mask": "PendingRegion*",
+    "surfaceFormat": "QsSurfaceFormat",
+    "updatesEnabled": "bool",
+    "data": "QQmlListProperty<QObject>"
+   },
+   "signals": [
+    "backingWindowVisibleChanged",
+    "closed",
+    "colorChanged",
+    "devicePixelRatioChanged",
+    "heightChanged",
+    "implicitHeightChanged",
+    "implicitWidthChanged",
+    "maskChanged",
+    "resourcesLost",
+    "screenChanged",
+    "surfaceFormatChanged",
+    "updatesEnabledChanged",
+    "visibleChanged",
+    "widthChanged",
+    "windowConnected",
+    "windowTransformChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": true,
+   "instantiable": true
+  },
+  "QsWindowAttached": {
+   "cname": "QsWindowAttached",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "window": "QObject*",
+    "contentItem": "QQuickItem*"
+   },
+   "signals": [
+    "windowChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": false
+  },
+  "Quickshell": {
+   "cname": "QuickshellGlobal",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "processId": "qint32",
+    "instanceId": "QString",
+    "shellId": "QString",
+    "appId": "QString",
+    "launchTime": "QDateTime",
+    "screens": "QQmlListProperty<QuickshellScreenInfo>",
+    "shellDir": "QString",
+    "configDir": "QString",
+    "shellRoot": "QString",
+    "workingDirectory": "QString",
+    "watchFiles": "bool",
+    "clipboardText": "QString",
+    "dataDir": "QString",
+    "stateDir": "QString",
+    "cacheDir": "QString"
+   },
+   "signals": [
+    "clipboardTextChanged",
+    "lastWindowClosed",
+    "reloadCompleted",
+    "reloadFailed",
+    "screensChanged",
+    "watchFilesChanged",
+    "workingDirectoryChanged"
+   ],
+   "functions": [
+    "env",
+    "execDetached",
+    "hasQtVersion",
+    "hasThemeIcon",
+    "hasVersion",
+    "iconPath",
+    "inhibitReloadPopup",
+    "reload"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "QuickshellSettings": {
+   "cname": "QuickshellSettings",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "workingDirectory": "QString",
+    "watchFiles": "bool"
+   },
+   "signals": [
+    "lastWindowClosed",
+    "watchFilesChanged",
+    "workingDirectoryChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Region": {
+   "cname": "PendingRegion",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "shape": "RegionShape::Enum",
+    "intersection": "Intersection::Enum",
+    "item": "QQuickItem*",
+    "x": "qint32",
+    "y": "qint32",
+    "width": "qint32",
+    "height": "qint32",
+    "radius": "qint32",
+    "topLeftRadius": "qint32",
+    "topRightRadius": "qint32",
+    "bottomLeftRadius": "qint32",
+    "bottomRightRadius": "qint32",
+    "regions": "QQmlListProperty<PendingRegion>"
+   },
+   "signals": [
+    "bottomLeftRadiusChanged",
+    "bottomRightRadiusChanged",
+    "changed",
+    "childrenChanged",
+    "heightChanged",
+    "intersectionChanged",
+    "itemChanged",
+    "radiusChanged",
+    "shapeChanged",
+    "topLeftRadiusChanged",
+    "topRightRadiusChanged",
+    "widthChanged",
+    "xChanged",
+    "yChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "RegionShape": {
+   "cname": "RegionShape",
+   "base": "",
+   "module": "Quickshell",
+   "props": {},
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "values": [
+    "Rect",
+    "Ellipse"
+   ]
+  },
+  "ReloadPopup": {
+   "cname": "ReloadPopup",
+   "base": "PanelWindow",
+   "module": "Quickshell",
+   "props": {
+    "instanceId": "string",
+    "failed": "bool",
+    "errorString": "string",
+    "red": "bool"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false
+  },
+  "ReloadPopupInfo": {
+   "cname": "ReloadPopup",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "instanceId": "QString",
+    "failed": "bool",
+    "errorString": "QString"
+   },
+   "signals": [],
+   "functions": [
+    "closed"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Reloadable": {
+   "cname": "Reloadable",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "reloadableId": "QString"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Retainable": {
+   "cname": "RetainableHook",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "retained": "bool"
+   },
+   "signals": [
+    "aboutToDestroy",
+    "dropped",
+    "retainedChanged"
+   ],
+   "functions": [
+    "forceUnlock",
+    "lock",
+    "unlock"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": true,
+   "instantiable": true
+  },
+  "RetainableLock": {
+   "cname": "RetainableLock",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "object": "QObject*",
+    "locked": "bool",
+    "retained": "bool"
+   },
+   "signals": [
+    "aboutToDestroy",
+    "dropped",
+    "lockedChanged",
+    "objectChanged",
+    "retainedChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Scope": {
+   "cname": "ReloadPropagator",
+   "base": "Reloadable",
+   "module": "Quickshell",
+   "props": {
+    "children": "QQmlListProperty<QObject>"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "ScreenProjection": {
+   "cname": "ScreenProjection",
+   "base": "WindowsetProjection",
+   "module": "Quickshell.WindowManager",
+   "props": {},
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "ScreencopyView": {
+   "cname": "ScreencopyView",
+   "base": "QQuickItem",
+   "module": "Quickshell.Wayland",
+   "props": {
+    "captureSource": "QObject*",
+    "paintCursor": "bool",
+    "live": "bool",
+    "hasContent": "bool",
+    "sourceSize": "QSize",
+    "constraintSize": "QSizeF"
+   },
+   "signals": [
+    "captureSourceChanged",
+    "constraintSizeChanged",
+    "hasContentChanged",
+    "liveChanged",
+    "paintCursorsChanged",
+    "sourceSizeChanged",
+    "stopped"
+   ],
+   "functions": [
+    "captureFrame"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "ScriptModel": {
+   "cname": "ScriptModel",
+   "base": "QAbstractListModel",
+   "module": "Quickshell",
+   "props": {
+    "values": "QList<QJSValue>",
+    "objectProp": "QString",
+    "comparisonMode": "ObjectComparison::Enum"
+   },
+   "signals": [
+    "comparisonModeChanged",
+    "objectPropChanged",
+    "valuesChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "ShellRoot": {
+   "cname": "ShellRoot",
+   "base": "ReloadPropagator",
+   "module": "Quickshell",
+   "props": {
+    "settings": "QuickshellSettings*"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "ShellScreen": {
+   "cname": "QuickshellScreenInfo",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "name": "QString",
+    "model": "QString",
+    "serialNumber": "QString",
+    "x": "qint32",
+    "y": "qint32",
+    "width": "qint32",
+    "height": "qint32",
+    "physicalPixelDensity": "qreal",
+    "logicalPixelDensity": "qreal",
+    "devicePixelRatio": "qreal",
+    "orientation": "Qt::ScreenOrientation",
+    "primaryOrientation": "Qt::ScreenOrientation"
+   },
+   "signals": [
+    "geometryChanged",
+    "logicalPixelDensityChanged",
+    "orientationChanged",
+    "physicalPixelDensityChanged",
+    "primaryOrientationChanged"
+   ],
+   "functions": [
+    "toString"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "ShortcutInhibitor": {
+   "cname": "ShortcutInhibitor",
+   "base": "QObject",
+   "module": "Quickshell.Wayland",
+   "props": {
+    "enabled": "bool",
+    "window": "QObject*",
+    "active": "bool"
+   },
+   "signals": [
+    "activeChanged",
+    "cancelled",
+    "enabledChanged",
+    "windowChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Singleton": {
+   "cname": "Singleton",
+   "base": "ReloadPropagator",
+   "module": "Quickshell",
+   "props": {},
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Socket": {
+   "cname": "Socket",
+   "base": "DataStream",
+   "module": "Quickshell.Io",
+   "props": {
+    "connected": "bool",
+    "path": "QString"
+   },
+   "signals": [
+    "connectionStateChanged",
+    "error",
+    "pathChanged"
+   ],
+   "functions": [
+    "flush",
+    "write"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "SocketServer": {
+   "cname": "SocketServer",
+   "base": "Reloadable",
+   "module": "Quickshell.Io",
+   "props": {
+    "active": "bool",
+    "path": "QString",
+    "handler": "QQmlComponent*"
+   },
+   "signals": [
+    "activeStatusChanged",
+    "handlerChanged",
+    "pathChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "SplitParser": {
+   "cname": "SplitParser",
+   "base": "DataStreamParser",
+   "module": "Quickshell.Io",
+   "props": {
+    "splitMarker": "QString"
+   },
+   "signals": [
+    "splitMarkerChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Status": {
+   "cname": "Status",
+   "base": "",
+   "module": "Quickshell.Services.SystemTray",
+   "props": {},
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "values": [
+    "Passive",
+    "Active",
+    "NeedsAttention"
+   ]
+  },
+  "StatusNotifierWatcher": {
+   "cname": "StatusNotifierWatcher",
+   "base": "QObject",
+   "module": "Quickshell.Services.SystemTray",
+   "props": {
+    "ProtocolVersion": "qint32",
+    "IsStatusNotifierHostRegistered": "bool",
+    "RegisteredStatusNotifierItems": "QList<QString>"
+   },
+   "signals": [
+    "StatusNotifierHostRegistered",
+    "StatusNotifierHostUnregistered",
+    "StatusNotifierItemRegistered",
+    "StatusNotifierItemUnregistered"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": false
+  },
+  "StdioCollector": {
+   "cname": "StdioCollector",
+   "base": "DataStreamParser",
+   "module": "Quickshell.Io",
+   "props": {
+    "text": "QString",
+    "data": "QByteArray",
+    "waitForEnd": "bool"
+   },
+   "signals": [
+    "dataChanged",
+    "streamFinished",
+    "waitForEndChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "SystemClock": {
+   "cname": "SystemClock",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "enabled": "bool",
+    "precision": "SystemClock::Enum",
+    "date": "QDateTime",
+    "hours": "quint32",
+    "minutes": "quint32",
+    "seconds": "quint32"
+   },
+   "signals": [
+    "dateChanged",
+    "enabledChanged",
+    "precisionChanged"
+   ],
+   "functions": [],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "Hours",
+    "Minutes",
+    "Seconds"
+   ]
+  },
+  "SystemTray": {
+   "cname": "SystemTray",
+   "base": "QObject",
+   "module": "Quickshell.Services.SystemTray",
+   "props": {
+    "items": "UntypedObjectModel*"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "SystemTrayItem": {
+   "cname": "StatusNotifierItem",
+   "base": "QObject",
+   "module": "Quickshell.Services.SystemTray",
+   "props": {
+    "id": "QString",
+    "title": "QString",
+    "status": "qs::service::sni::Status::Enum",
+    "category": "qs::service::sni::Category::Enum",
+    "icon": "QString",
+    "tooltipTitle": "QString",
+    "tooltipDescription": "QString",
+    "hasMenu": "bool",
+    "menu": "qs::dbus::dbusmenu::DBusMenuHandle*",
+    "onlyMenu": "bool"
+   },
+   "signals": [
+    "categoryChanged",
+    "hasMenuChanged",
+    "iconChanged",
+    "idChanged",
+    "onlyMenuChanged",
+    "ready",
+    "statusChanged",
+    "titleChanged",
+    "tooltipDescriptionChanged",
+    "tooltipTitleChanged"
+   ],
+   "functions": [
+    "activate",
+    "display",
+    "scroll",
+    "secondaryActivate"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Tooltip": {
+   "cname": "Tooltip",
+   "base": "PopupWindow",
+   "module": "Quickshell",
+   "props": {
+    "actionText": "string",
+    "show": "bool",
+    "showInternal": "bool",
+    "mShowAction": "bool",
+    "opacity": "real"
+   },
+   "signals": [],
+   "functions": [
+    "showAction"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false
+  },
+  "Toplevel": {
+   "cname": "Toplevel",
+   "base": "QObject",
+   "module": "Quickshell.Wayland",
+   "props": {
+    "appId": "QString",
+    "title": "QString",
+    "parent": "qs::wayland::toplevel::Toplevel*",
+    "activated": "bool",
+    "screens": "QList<QuickshellScreenInfo*>",
+    "maximized": "bool",
+    "minimized": "bool",
+    "fullscreen": "bool"
+   },
+   "signals": [
+    "activatedChanged",
+    "appIdChanged",
+    "closed",
+    "fullscreenChanged",
+    "maximizedChanged",
+    "minimizedChanged",
+    "parentChanged",
+    "screensChanged",
+    "titleChanged"
+   ],
+   "functions": [
+    "activate",
+    "close",
+    "fullscreenOn",
+    "setRectangle",
+    "unsetRectangle"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "ToplevelManager": {
+   "cname": "ToplevelManagerQml",
+   "base": "QObject",
+   "module": "Quickshell.Wayland",
+   "props": {
+    "toplevels": "UntypedObjectModel*",
+    "activeToplevel": "qs::wayland::toplevel::Toplevel*"
+   },
+   "signals": [
+    "activeToplevelChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "TransformWatcher": {
+   "cname": "TransformWatcher",
+   "base": "QObject",
+   "module": "Quickshell",
+   "props": {
+    "a": "QQuickItem*",
+    "b": "QQuickItem*",
+    "commonParent": "QQuickItem*",
+    "transform": "QObject*"
+   },
+   "signals": [
+    "aChanged",
+    "bChanged",
+    "commonParentChanged",
+    "transformChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "UPower": {
+   "cname": "UPowerQml",
+   "base": "QObject",
+   "module": "Quickshell.Services.UPower",
+   "props": {
+    "displayDevice": "qs::service::upower::UPowerDevice*",
+    "devices": "UntypedObjectModel*",
+    "onBattery": "bool"
+   },
+   "signals": [
+    "onBatteryChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "UPowerDevice": {
+   "cname": "UPowerDevice",
+   "base": "QObject",
+   "module": "Quickshell.Services.UPower",
+   "props": {
+    "type": "qs::service::upower::UPowerDeviceType::Enum",
+    "powerSupply": "bool",
+    "energy": "qreal",
+    "energyCapacity": "qreal",
+    "changeRate": "qreal",
+    "timeToEmpty": "qreal",
+    "timeToFull": "qreal",
+    "percentage": "qreal",
+    "isPresent": "bool",
+    "state": "qs::service::upower::UPowerDeviceState::Enum",
+    "healthPercentage": "qreal",
+    "healthSupported": "bool",
+    "iconName": "QString",
+    "isLaptopBattery": "bool",
+    "nativePath": "QString",
+    "model": "QString",
+    "ready": "bool"
+   },
+   "signals": [
+    "changeRateChanged",
+    "energyCapacityChanged",
+    "energyChanged",
+    "healthPercentageChanged",
+    "healthSupportedChanged",
+    "iconNameChanged",
+    "isLaptopBatteryChanged",
+    "isPresentChanged",
+    "modelChanged",
+    "nativePathChanged",
+    "percentageChanged",
+    "powerSupplyChanged",
+    "readyChanged",
+    "stateChanged",
+    "timeToEmptyChanged",
+    "timeToFullChanged",
+    "typeChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "UPowerDeviceState": {
+   "cname": "UPowerDeviceState",
+   "base": "QObject",
+   "module": "Quickshell.Services.UPower",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "Unknown",
+    "Charging",
+    "Discharging",
+    "Empty",
+    "FullyCharged",
+    "PendingCharge",
+    "PendingDischarge"
+   ]
+  },
+  "UPowerDeviceType": {
+   "cname": "UPowerDeviceType",
+   "base": "QObject",
+   "module": "Quickshell.Services.UPower",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "Unknown",
+    "LinePower",
+    "Battery",
+    "Ups",
+    "Monitor",
+    "Mouse",
+    "Keyboard",
+    "Pda",
+    "Phone",
+    "MediaPlayer",
+    "Tablet",
+    "Computer",
+    "GamingInput",
+    "Pen",
+    "Touchpad",
+    "Modem",
+    "Network",
+    "Headset",
+    "Speakers",
+    "Headphones",
+    "Video",
+    "OtherAudio",
+    "RemoteControl",
+    "Printer",
+    "Scanner",
+    "Camera",
+    "Wearable",
+    "Toy",
+    "BluetoothGeneric"
+   ]
+  },
+  "Variants": {
+   "cname": "Variants",
+   "base": "Reloadable",
+   "module": "Quickshell",
+   "props": {
+    "delegate": "QQmlComponent*",
+    "model": "QVariant",
+    "instances": "QQmlListProperty<QObject>"
+   },
+   "signals": [
+    "instancesChanged",
+    "modelChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "WifiDevice": {
+   "cname": "WifiDevice",
+   "base": "NetworkDevice",
+   "module": "Quickshell.Networking",
+   "props": {
+    "scannerEnabled": "bool",
+    "mode": "WifiDeviceMode::Enum"
+   },
+   "signals": [
+    "modeChanged",
+    "scannerEnabledChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "WifiDeviceMode": {
+   "cname": "WifiDeviceMode",
+   "base": "QObject",
+   "module": "Quickshell.Networking",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "AdHoc",
+    "Station",
+    "AccessPoint",
+    "Mesh",
+    "Unknown"
+   ]
+  },
+  "WifiNetwork": {
+   "cname": "WifiNetwork",
+   "base": "Network",
+   "module": "Quickshell.Networking",
+   "props": {
+    "signalStrength": "qreal",
+    "security": "WifiSecurityType::Enum"
+   },
+   "signals": [
+    "requestConnectWithPsk",
+    "securityChanged",
+    "signalStrengthChanged"
+   ],
+   "functions": [
+    "connectWithPsk"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "WifiSecurityType": {
+   "cname": "WifiSecurityType",
+   "base": "QObject",
+   "module": "Quickshell.Networking",
+   "props": {},
+   "signals": [],
+   "functions": [
+    "toString"
+   ],
+   "enums": [
+    "Enum"
+   ],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true,
+   "values": [
+    "Wpa3SuiteB192",
+    "Sae",
+    "Wpa2Eap",
+    "Wpa2Psk",
+    "WpaEap",
+    "WpaPsk",
+    "StaticWep",
+    "DynamicWep",
+    "Leap",
+    "Owe",
+    "Open",
+    "Unknown"
+   ]
+  },
+  "WindowManager": {
+   "cname": "WindowManagerQml",
+   "base": "QObject",
+   "module": "Quickshell.WindowManager",
+   "props": {
+    "windowsets": "QList<Windowset*>",
+    "windowsetProjections": "QList<WindowsetProjection*>"
+   },
+   "signals": [],
+   "functions": [
+    "screenProjection"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "Windowset": {
+   "cname": "Windowset",
+   "base": "QObject",
+   "module": "Quickshell.WindowManager",
+   "props": {
+    "id": "QString",
+    "name": "QString",
+    "coordinates": "QList<qint32>",
+    "active": "bool",
+    "projection": "WindowsetProjection*",
+    "shouldDisplay": "bool",
+    "urgent": "bool",
+    "canActivate": "bool",
+    "canDeactivate": "bool",
+    "canRemove": "bool",
+    "canSetProjection": "bool"
+   },
+   "signals": [
+    "activeChanged",
+    "canActivateChanged",
+    "canDeactivateChanged",
+    "canRemoveChanged",
+    "canSetProjectionChanged",
+    "coordinatesChanged",
+    "idChanged",
+    "nameChanged",
+    "projectionChanged",
+    "shouldDisplayChanged",
+    "urgentChanged"
+   ],
+   "functions": [
+    "activate",
+    "deactivate",
+    "remove",
+    "setProjection"
+   ],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "WindowsetProjection": {
+   "cname": "WindowsetProjection",
+   "base": "QObject",
+   "module": "Quickshell.WindowManager",
+   "props": {
+    "screens": "QList<QuickshellScreenInfo*>",
+    "windowsets": "QList<Windowset*>"
+   },
+   "signals": [
+    "screensChanged",
+    "windowsetsChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "WiredDevice": {
+   "cname": "WiredDevice",
+   "base": "NetworkDevice",
+   "module": "Quickshell.Networking",
+   "props": {
+    "network": "Network*",
+    "linkSpeed": "quint32",
+    "hasLink": "bool"
+   },
+   "signals": [
+    "hasLinkChanged",
+    "linkSpeedChanged",
+    "networkChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "WlSessionLock": {
+   "cname": "WlSessionLock",
+   "base": "Reloadable",
+   "module": "Quickshell.Wayland",
+   "props": {
+    "locked": "bool",
+    "secure": "bool",
+    "surface": "QQmlComponent*"
+   },
+   "signals": [
+    "lockStateChanged",
+    "secureStateChanged",
+    "surfaceComponentChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "WlSessionLockSurface": {
+   "cname": "WlSessionLockSurface",
+   "base": "Reloadable",
+   "module": "Quickshell.Wayland",
+   "props": {
+    "contentItem": "QQuickItem*",
+    "visible": "bool",
+    "width": "qint32",
+    "height": "qint32",
+    "screen": "QuickshellScreenInfo*",
+    "color": "QColor",
+    "data": "QQmlListProperty<QObject>"
+   },
+   "signals": [
+    "colorChanged",
+    "heightChanged",
+    "screenChanged",
+    "visibleChanged",
+    "widthChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "WlrKeyboardFocus": {
+   "cname": "WlrKeyboardFocus",
+   "base": "",
+   "module": "Quickshell.Wayland",
+   "props": {},
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "values": [
+    "None",
+    "Exclusive",
+    "OnDemand"
+   ]
+  },
+  "WlrLayer": {
+   "cname": "WlrLayer",
+   "base": "",
+   "module": "Quickshell.Wayland",
+   "props": {},
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "values": [
+    "Background",
+    "Bottom",
+    "Top",
+    "Overlay"
+   ]
+  },
+  "WlrLayershell": {
+   "cname": "WlrLayershell",
+   "base": "ProxyWindowBase",
+   "module": "Quickshell.Wayland",
+   "props": {
+    "layer": "qs::wayland::layershell::WlrLayer::Enum",
+    "namespace": "QString",
+    "keyboardFocus": "qs::wayland::layershell::WlrKeyboardFocus::Enum",
+    "anchors": "Anchors",
+    "exclusiveZone": "qint32",
+    "exclusionMode": "ExclusionMode::Enum",
+    "margins": "Margins",
+    "aboveWindows": "bool",
+    "focusable": "bool"
+   },
+   "signals": [
+    "anchorsChanged",
+    "exclusionModeChanged",
+    "exclusiveZoneChanged",
+    "keyboardFocusChanged",
+    "layerChanged",
+    "marginsChanged",
+    "namespaceChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": true,
+   "instantiable": true
+  },
+  "WrapperItem": {
+   "cname": "WrapperItem",
+   "base": "Item",
+   "module": "Quickshell.Widgets",
+   "props": {
+    "margin": "alias",
+    "extraMargin": "alias",
+    "topMargin": "alias",
+    "bottomMargin": "alias",
+    "leftMargin": "alias",
+    "rightMargin": "alias",
+    "resizeChild": "alias",
+    "implicitWidth": "alias",
+    "implicitHeight": "alias",
+    "child": "alias"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false
+  },
+  "WrapperManager": {
+   "cname": "WrapperManager",
+   "base": "QObject",
+   "module": "Quickshell.Widgets",
+   "props": {
+    "child": "QQuickItem*",
+    "wrapper": "QQuickItem*"
+   },
+   "signals": [
+    "childChanged",
+    "initializedChildChanged",
+    "wrapperChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  },
+  "WrapperMouseArea": {
+   "cname": "WrapperMouseArea",
+   "base": "MouseArea",
+   "module": "Quickshell.Widgets",
+   "props": {
+    "margin": "alias",
+    "extraMargin": "alias",
+    "topMargin": "alias",
+    "bottomMargin": "alias",
+    "leftMargin": "alias",
+    "rightMargin": "alias",
+    "resizeChild": "alias",
+    "implicitWidth": "alias",
+    "implicitHeight": "alias",
+    "child": "alias"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false
+  },
+  "WrapperRectangle": {
+   "cname": "WrapperRectangle",
+   "base": "Rectangle",
+   "module": "Quickshell.Widgets",
+   "props": {
+    "contentInsideBorder": "bool",
+    "extraMargin": "real",
+    "child": "alias",
+    "margin": "alias",
+    "topMargin": "alias",
+    "bottomMargin": "alias",
+    "leftMargin": "alias",
+    "rightMargin": "alias",
+    "resizeChild": "alias",
+    "implicitWidth": "alias",
+    "implicitHeight": "alias"
+   },
+   "signals": [],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false
+  },
+  "XPanelWindow": {
+   "cname": "XPanelWindow",
+   "base": "ProxyWindowBase",
+   "module": "Quickshell",
+   "props": {
+    "anchors": "Anchors",
+    "exclusiveZone": "qint32",
+    "exclusionMode": "ExclusionMode::Enum",
+    "margins": "Margins",
+    "aboveWindows": "bool",
+    "focusable": "bool"
+   },
+   "signals": [
+    "aboveWindowsChanged",
+    "anchorsChanged",
+    "exclusionModeChanged",
+    "exclusiveZoneChanged",
+    "focusableChanged",
+    "marginsChanged"
+   ],
+   "functions": [],
+   "enums": [],
+   "hidden": [],
+   "attached": false,
+   "instantiable": true
+  }
+ }
+}

@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+#   noctiluca-shell                  start it (single instance)
+#   noctiluca-shell ipc call <target> <function> [args...]
+#   noctiluca-shell log | kill
+#   noctiluca-shell --check | --print-qs
+#
+# picks qs from $NOCTILUCA_QS, then the newest ~/.local/opt/quickshell-*, then PATH (>= 0.3.2).
+# refuses to start (exit 78) if qt was updated since the build, instead of letting it crash.
+set -euo pipefail
+
+NAME="noctiluca"
+MIN_VERSION="0.3.2"
+
+die() { printf 'noctiluca-shell: %s\n' "$*" >&2; exit "${2:-1}"; }
+
+version_ge() { [ "$(printf '%s\n%s\n' "$2" "$1" | sort -V | head -n1)" = "$2" ]; }
+
+resolve_qs() {
+  if [ -n "${NOCTILUCA_QS:-}" ]; then
+    [ -x "$NOCTILUCA_QS" ] || die "NOCTILUCA_QS is set but not executable: $NOCTILUCA_QS"
+    QS="$NOCTILUCA_QS"; PREFIX="$(dirname "$(dirname "$QS")")"; return
+  fi
+  local base="${NOCTILUCA_QS_PREFIX:-$HOME/.local/opt}" cand=""
+  # upstream installs qs as a symlink, so -type f alone misses it
+  cand="$(find "$base" -maxdepth 3 \( -type f -o -type l \) \
+            \( -name qs -o -name quickshell \) -path '*/quickshell-*/bin/*' 2>/dev/null \
+          | sort -V | tail -n1 || true)"
+  if [ -n "$cand" ]; then
+    QS="$cand"; PREFIX="$(dirname "$(dirname "$cand")")"; return
+  fi
+  if command -v qs >/dev/null 2>&1; then
+    local v
+    v="$(qs --version 2>/dev/null | sed -n 's/^[Qq]uickshell \([0-9][0-9.]*\).*/\1/p' | head -n1)"
+    if [ -n "$v" ] && version_ge "$v" "$MIN_VERSION"; then
+      QS="$(command -v qs)"; PREFIX=""; return
+    fi
+    die "system qs is '${v:-unknown}' (< $MIN_VERSION): it predates Hyprland-Lua support. Build the private copy: scripts/build-quickshell.sh" 69
+  fi
+  die "no Quickshell found. Build the private copy: scripts/build-quickshell.sh" 69
+}
+
+qt_version() {
+  if command -v pkg-config >/dev/null 2>&1; then pkg-config --modversion Qt6Core 2>/dev/null && return 0; fi
+  if command -v qtpaths6 >/dev/null 2>&1; then qtpaths6 --qt-version 2>/dev/null && return 0; fi
+  return 1
+}
+
+check_abi() {
+  [ -n "${PREFIX:-}" ] || return 0                      # system package: rebuilt by pacman
+  [ -z "${NOCTILUCA_SKIP_QT_CHECK:-}" ] || return 0
+  local stamp="$PREFIX/.qt-version" built now
+  if [ ! -f "$stamp" ]; then
+    printf 'noctiluca-shell: warning: %s has no .qt-version stamp; cannot verify the Qt ABI\n' "$PREFIX" >&2
+    return 0
+  fi
+  built="$(cat "$stamp")"
+  now="$(qt_version || true)"
+  if [ -z "$now" ]; then
+    printf 'noctiluca-shell: warning: cannot determine the installed Qt version (install pkgconf)\n' >&2
+    return 0
+  fi
+  if [ "$built" != "$now" ]; then
+    die "Quickshell was built against Qt $built but Qt $now is installed. Rebuild: scripts/build-quickshell.sh (or NOCTILUCA_SKIP_QT_CHECK=1 to ignore)" 78
+  fi
+}
+
+resolve_qs
+check_abi
+
+case "${1:-}" in
+  --print-qs) printf '%s\n' "$QS"; exit 0 ;;
+  --check)    printf 'ok: %s\n' "$QS"; exit 0 ;;
+esac
+
+CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/quickshell/$NAME/shell.qml"
+case "${1:-}" in
+  ipc|log|kill)
+    sub="$1"; shift
+    exec "$QS" "$sub" -c "$NAME" "$@" ;;
+  "")
+    [ -f "$CONFIG_FILE" ] || die "shell config not installed: $CONFIG_FILE" 66
+    exec "$QS" -c "$NAME" --no-duplicate ;;
+  *)
+    die "unknown argument '$1' (see the header of this script)" 64 ;;
+esac

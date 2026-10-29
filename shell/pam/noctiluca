@@ -1,0 +1,8 @@
+# PAM for the lockscreen. Quickshell can only use `auth` (the rest needs root), so this is all
+# of it: pam_unix checks your password. Keep at least one `required` line or PAM fails with an
+# unhelpful error.
+#
+# Fingerprint first, password as the fallback:
+#     auth sufficient pam_fprintd.so
+#     auth required   pam_unix.so
+auth required pam_unix.so

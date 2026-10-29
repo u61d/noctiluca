@@ -1,0 +1,4 @@
+[ColorScheme]
+active_colors={{text|qt}}, {{slate|qt}}, {{line|qt}}, {{dusk|qt}}, {{void|qt}}, {{ink|qt}}, {{text|qt}}, {{glow_hi|qt}}, {{text|qt}}, {{void|qt}}, {{ink|qt}}, #ff000000, {{glow_lo|qt}}, {{text|qt}}, {{glow|qt}}, {{dim|qt}}, {{ink|qt}}, {{void|qt}}, {{slate|qt}}, {{text|qt}}, {{mute|qt}}
+disabled_colors={{mute|qt}}, {{slate|qt}}, {{line|qt}}, {{dusk|qt}}, {{void|qt}}, {{ink|qt}}, {{mute|qt}}, {{mute|qt}}, {{mute|qt}}, {{void|qt}}, {{ink|qt}}, #ff000000, {{line|qt}}, {{mute|qt}}, {{mute|qt}}, {{mute|qt}}, {{ink|qt}}, {{void|qt}}, {{slate|qt}}, {{mute|qt}}, {{mute|qt}}
+inactive_colors={{text|qt}}, {{slate|qt}}, {{line|qt}}, {{dusk|qt}}, {{void|qt}}, {{ink|qt}}, {{text|qt}}, {{glow_hi|qt}}, {{text|qt}}, {{void|qt}}, {{ink|qt}}, #ff000000, {{line|qt}}, {{text|qt}}, {{glow|qt}}, {{dim|qt}}, {{ink|qt}}, {{void|qt}}, {{slate|qt}}, {{text|qt}}, {{mute|qt}}

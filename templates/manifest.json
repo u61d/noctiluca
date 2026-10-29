@@ -1,0 +1,20 @@
+{
+  "comment": "kind=palette targets are rewritten whenever the palette changes. kind=static targets are written once by `noctiluca-theme --setup` (they hold absolute paths or user-visible settings). {config} = XDG_CONFIG_HOME, {data} = XDG_DATA_HOME, {state} = noctiluca state dir. merge=kde only replaces the colour sections of an existing kdeglobals and keeps the rest.",
+  "targets": [
+    { "name": "hypr",      "kind": "palette", "template": "hypr-colors.lua.tpl",   "dest": "{config}/hypr/generated/colors.lua",       "reload": "hypr"  },
+    { "name": "kitty",     "kind": "palette", "template": "kitty-colors.conf.tpl", "dest": "{config}/kitty/noctiluca-colors.conf",     "reload": "kitty" },
+    { "name": "gtk4",      "kind": "palette", "template": "gtk-colors.css.tpl",    "dest": "{config}/gtk-4.0/noctiluca-colors.css",    "reload": null    },
+    { "name": "gtk3",      "kind": "palette", "template": "gtk-colors.css.tpl",    "dest": "{config}/gtk-3.0/noctiluca-colors.css",    "reload": null    },
+    { "name": "qt6ct-colors", "kind": "palette", "template": "qt6ct-colors.conf.tpl", "dest": "{config}/qt6ct/colors/noctiluca.conf",  "reload": null    },
+    { "name": "fastfetch", "kind": "palette", "template": "fastfetch.jsonc.tpl",   "dest": "{config}/fastfetch/config.jsonc",          "reload": null    },
+    { "name": "zsh",       "kind": "palette", "template": "colors.zsh.tpl",        "dest": "{config}/noctiluca/colors.zsh",            "reload": null    },
+    { "name": "kde",       "kind": "palette", "template": "kdeglobals.tpl",        "dest": "{config}/kdeglobals",                      "reload": null, "merge": "kde" },
+    { "name": "kde-scheme", "kind": "palette", "template": "kde-scheme.colors.tpl", "dest": "{data}/color-schemes/Noctiluca.colors",    "reload": null    },
+
+    { "name": "qt6ct",     "kind": "static",  "template": "qt6ct.conf.tpl",        "dest": "{config}/qt6ct/qt6ct.conf",                "reload": null    },
+    { "name": "gtk4-settings", "kind": "static", "template": "gtk-settings.ini.tpl", "dest": "{config}/gtk-4.0/settings.ini",           "reload": null    },
+    { "name": "gtk3-settings", "kind": "static", "template": "gtk-settings.ini.tpl", "dest": "{config}/gtk-3.0/settings.ini",           "reload": null    },
+    { "name": "gtk4-css",  "kind": "static",  "template": "gtk.css.tpl",           "dest": "{config}/gtk-4.0/gtk.css",                 "reload": null    },
+    { "name": "gtk3-css",  "kind": "static",  "template": "gtk.css.tpl",           "dest": "{config}/gtk-3.0/gtk.css",                 "reload": null    }
+  ]
+}

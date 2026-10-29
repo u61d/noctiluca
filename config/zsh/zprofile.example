@@ -1,0 +1,7 @@
+# for tty logins: starts hyprland on tty1-3, never over ssh. copy to ~/.zprofile yourself,
+# the installer doesn't touch it
+if [[ -z $WAYLAND_DISPLAY && -z $DISPLAY && -z $SSH_CONNECTION ]] \
+   && [[ -n $XDG_VTNR && $XDG_VTNR -ge 1 && $XDG_VTNR -le 3 ]] \
+   && command -v start-hyprland >/dev/null 2>&1; then
+  exec start-hyprland
+fi

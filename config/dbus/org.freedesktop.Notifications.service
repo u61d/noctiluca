@@ -1,0 +1,5 @@
+# beats the service files mako/dunst/swaync install system-wide, so an early
+# notify-send can't start one of them and keep the name for the whole session
+[D-BUS Service]
+Name=org.freedesktop.Notifications
+Exec=/usr/bin/false

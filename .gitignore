@@ -1,0 +1,12 @@
+config/hypr/local.lua
+
+config/hypr/generated/
+
+__pycache__/
+*.pyc
+
+wallpapers/*
+!wallpapers/README.md
+
+*.swp
+.DS_Store

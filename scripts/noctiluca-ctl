@@ -1,0 +1,197 @@
+#!/usr/bin/env bash
+#   noctiluca-ctl lock | dpms on|off | doctor | mem
+set -euo pipefail
+
+APPID="noctiluca"
+
+die() { printf 'noctiluca-ctl: %s\n' "$*" >&2; exit "${2:-1}"; }
+
+notify() {
+  if command -v notify-send >/dev/null 2>&1; then
+    notify-send -u critical "NOCTILUCA" "$*" || true
+  fi
+}
+
+ok()   { printf '  \033[32mok\033[0m    %s\n' "$*"; }
+bad()  { printf '  \033[31mfix\033[0m   %s\n' "$*"; }
+note() { printf '        %s\n' "$*"; }
+
+doctor() {
+  printf '\nshell\n'
+  if pgrep -u "$(id -u)" -f '(^|/)(qs|quickshell) -c noctiluca( |$)' >/dev/null 2>&1; then
+    ok "running (pid $(pgrep -u "$(id -u)" -f '(^|/)(qs|quickshell) -c noctiluca( |$)' | head -n1))"
+  else
+    bad "not running: start it with noctiluca-shell"
+  fi
+  if command -v noctiluca-shell >/dev/null 2>&1 && noctiluca-shell --check >/dev/null 2>&1; then
+    ok "Quickshell build: $(noctiluca-shell --print-qs 2>/dev/null)"
+    local prefix features
+    prefix="$(dirname "$(dirname "$(noctiluca-shell --print-qs 2>/dev/null)")")"
+    features="$(tr '\n' ' ' < "$prefix/.noctiluca-features" 2>/dev/null || true)"
+    if [ -n "$features" ]; then ok "built with: $features"; else bad "built without screencopy and polkit: ./install.sh --build"; fi
+  else
+    bad "Quickshell build missing or out of date with Qt: scripts/build-quickshell.sh"
+  fi
+
+  printf '\nnotifications\n'
+  local owner pid comm self
+  owner="$(busctl --user status org.freedesktop.Notifications 2>/dev/null | grep -E '^(PID|Comm|CommandLine)=' || true)"
+  pid="$(printf '%s\n' "$owner" | sed -n 's/^PID=//p')"
+  comm="$(printf '%s\n' "$owner" | sed -n 's/^Comm=//p')"
+  self="$(pgrep -u "$(id -u)" -f '(^|/)(qs|quickshell) -c noctiluca( |$)' | tr '\n' ' ' || true)"
+  if ! command -v busctl >/dev/null 2>&1; then
+    bad "busctl not found (it comes with systemd), so the owner can't be checked"
+  elif [ -z "$self" ]; then
+    bad "the shell isn't running, so nothing of ours can receive notifications"
+    if [ -n "$pid" ]; then note "right now $comm (pid $pid) has the name"; fi
+  elif [ -z "$pid" ]; then
+    bad "nobody owns org.freedesktop.Notifications: the shell's server didn't register"
+    note "look for 'notification' in: noctiluca-shell log"
+  elif case " $self " in *" $pid "*) true ;; *) false ;; esac; then
+    ok "the shell owns org.freedesktop.Notifications"
+  else
+    bad "org.freedesktop.Notifications belongs to $comm (pid $pid), not the shell"
+    note "stop it: kill $pid   (and remove it from whatever starts it)"
+    note "the shell takes the name by itself the moment it's free"
+  fi
+  local guard="${XDG_DATA_HOME:-$HOME/.local/share}/dbus-1/services/org.freedesktop.Notifications.service"
+  if [ -e "$guard" ]; then
+    ok "D-Bus won't auto-start another daemon ($guard)"
+  else
+    bad "no D-Bus guard: an early notification can start mako/dunst/swaync. ./install.sh --links"
+  fi
+  local others
+  others="$(grep -lsx 'Name=org.freedesktop.Notifications' /usr/share/dbus-1/services/*.service 2>/dev/null | xargs -r -n1 basename | tr '\n' ' ' || true)"
+  if [ -n "$others" ]; then note "installed daemons that could take it: $others"; fi
+  if command -v noctiluca-shell >/dev/null 2>&1 && [ -n "$self" ]; then
+    local st
+    st="$(noctiluca-shell ipc call notifications status 2>/dev/null || true)"
+    if [ -n "$st" ]; then note "the shell says: $st"; fi
+    noctiluca-shell ipc call notifications test >/dev/null 2>&1 \
+      && note "a test toast was put up from inside the shell; if you don't see it, drawing is the problem"
+  fi
+
+  printf '\nmusic\n'
+  if command -v cava >/dev/null 2>&1; then ok "cava is installed (the visualiser)"
+  else bad "cava is missing, so the visualiser stays flat: sudo pacman -S cava"; fi
+  if [ -n "$self" ]; then
+    local cs
+    cs="$(noctiluca-shell ipc call cava status 2>/dev/null || true)"
+    if [ -n "$cs" ]; then note "the visualiser says: $cs"; fi
+  fi
+  if ! command -v curl >/dev/null 2>&1; then
+    bad "curl is missing, so there are no lyrics: sudo pacman -S curl"
+  else
+    local code
+    code="$(curl -sS -o /dev/null --max-time 8 -w '%{http_code}' \
+      'https://lrclib.net/api/get?track_name=Creep&artist_name=Radiohead' 2>/dev/null || true)"
+    if [ "$code" = "200" ]; then ok "lrclib.net answers (lyrics)"
+    else bad "lrclib.net didn't answer (HTTP ${code:-none}); lyrics need it"; fi
+  fi
+
+  printf '\nscreen recording\n'
+  if command -v gpu-screen-recorder >/dev/null 2>&1; then
+    ok "gpu-screen-recorder $(gpu-screen-recorder --version 2>/dev/null | head -n1)"
+    # without cap_sys_admin on gsr-kms-server every recording asks for your password
+    local kms caps
+    kms="$(command -v gsr-kms-server 2>/dev/null || true)"
+    if [ -n "$kms" ] && command -v getcap >/dev/null 2>&1; then
+      caps="$(getcap "$kms" 2>/dev/null || true)"
+      if printf '%s' "$caps" | grep -q cap_sys_admin; then ok "gsr-kms-server can capture the screen"
+      else bad "gsr-kms-server lacks its capability, so screen and region recording can't start:"
+           note "sudo setcap cap_sys_admin+ep $kms"; fi
+    fi
+    local opts
+    opts="$(gpu-screen-recorder --list-capture-options 2>&1 | tr '\n' ' ' || true)"
+    [ -n "$opts" ] && note "it can capture: $opts"
+  elif command -v wf-recorder >/dev/null 2>&1; then
+    ok "wf-recorder (no window recording; gpu-screen-recorder does more)"
+  else
+    bad "nothing to record with: sudo pacman -S gpu-screen-recorder"
+  fi
+  local rlog="${XDG_STATE_HOME:-$HOME/.local/state}/noctiluca/recorder.log"
+  if [ -s "$rlog" ]; then
+    note "the last recording said (from $rlog):"
+    tail -n 6 "$rlog" | sed 's/^/          /'
+  fi
+
+  printf '\npassword prompts (polkit)\n'
+  local agents
+  agents="$(pgrep -a -u "$(id -u)" -f 'polkit-gnome|hyprpolkitagent|polkit-kde|lxpolkit|mate-polkit' || true)"
+  if [ -n "$agents" ]; then
+    bad "another polkit agent is running; only one can be registered:"
+    printf '%s\n' "$agents" | sed 's/^/        /'
+  else
+    ok "no other polkit agent running"
+  fi
+
+  printf '\nHyprland\n'
+  if command -v hyprctl >/dev/null 2>&1; then
+    local errs
+    errs="$(hyprctl configerrors 2>/dev/null | grep -v '^$' || true)"
+    if [ -z "$errs" ] || printf '%s' "$errs" | grep -qi 'no errors'; then ok "no config errors"
+    else bad "config errors:"; printf '%s\n' "$errs" | sed 's/^/        /'; fi
+    if hyprctl globalshortcuts 2>/dev/null | grep -q "${APPID}:"; then ok "the shell's shortcuts are registered"
+    else bad "no ${APPID}: shortcuts registered: the shell isn't running inside this Hyprland"; fi
+  else
+    bad "hyprctl not found: run this inside your Hyprland session"
+  fi
+  printf '\n'
+}
+
+# pss, not rss: qt's libraries are shared with every other qt app
+mem() {
+  local pid
+  pid="$(pgrep -u "$(id -u)" -f '(^|/)(qs|quickshell) -c noctiluca( |$)' | head -n1 || true)"
+  [ -n "$pid" ] || die "the shell isn't running"
+  local roll="/proc/$pid/smaps_rollup"
+  [ -r "$roll" ] || die "can't read $roll"
+  awk -v pid="$pid" '
+    /^Rss:/       { rss = $2 }
+    /^Pss:/       { pss = $2 }
+    /^Pss_Anon:/  { anon = $2 }
+    /^Pss_File:/  { file = $2 }
+    /^Pss_Shmem:/ { shm = $2 }
+    END {
+      mb = 1024
+      printf "\nshell (pid %s)\n", pid
+      printf "  %-22s %6.0f MB\n", "in use (PSS)", pss / mb
+      printf "  %-22s %6.0f MB   its own data: QML, images, caches\n", "  of which own", anon / mb
+      printf "  %-22s %6.0f MB   its share of Qt and the other libraries\n", "  of which libraries", file / mb
+      printf "  %-22s %6.0f MB   buffers shared with Hyprland\n", "  of which shared", shm / mb
+      printf "  %-22s %6.0f MB   (counts shared libraries in full)\n", "resident (RSS)", rss / mb
+    }' "$roll"
+  local threads
+  threads="$(awk '/^Threads:/ { print $2 }' "/proc/$pid/status")"
+  printf '  %-22s %6s\n' "threads" "$threads"
+  local kids
+  kids="$(pgrep -P "$pid" 2>/dev/null || true)"
+  if [ -n "$kids" ]; then
+    printf '\nstarted by it\n'
+    for k in $kids; do
+      awk -v name="$(cat "/proc/$k/comm" 2>/dev/null)" '/^Pss:/ { printf "  %-22s %6.0f MB\n", name, $2 / 1024 }' "/proc/$k/smaps_rollup" 2>/dev/null || true
+    done
+  fi
+  printf '\nFor comparison: a Quickshell desktop of this size usually sits between 150 and 300 MB.\n'
+  printf 'Open and close a few panels first; the number right after login is the lowest it gets.\n\n'
+}
+
+case "${1:-}" in
+  doctor)
+    doctor ;;
+  mem)
+    mem ;;
+  lock)
+    if ! hyprctl globalshortcuts 2>/dev/null | grep -q "${APPID}:lock"; then
+      notify "Cannot lock: the shell is not running (no ${APPID}:lock shortcut registered)."
+      die "shell lock shortcut not registered; screen NOT locked" 1
+    fi
+    exec hyprctl dispatch "hl.dsp.global(\"${APPID}:lock\")" ;;
+  dpms)
+    case "${2:-}" in
+      on|off) exec hyprctl dispatch "hl.dsp.dpms({ action = \"$2\" })" ;;
+      *) die "usage: noctiluca-ctl dpms on|off" 64 ;;
+    esac ;;
+  *)
+    die "usage: noctiluca-ctl lock | dpms on|off | doctor | mem" 64 ;;
+esac
